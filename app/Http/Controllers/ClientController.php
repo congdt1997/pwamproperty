@@ -23,7 +23,10 @@ class ClientController extends Controller
     {
         return view('client.home.about');
     }
-
+    public function getContact()
+    {
+        return view('client.home.contact');
+    }
     public function getHome()
     {
         $properties = Property::orderBy('created_at', 'desc')->take(6)->get();

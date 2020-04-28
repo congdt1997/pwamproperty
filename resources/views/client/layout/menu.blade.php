@@ -11,7 +11,7 @@
         <div class="rd-navbar-nav-wrap">
             <!-- RD Navbar Nav-->
             <ul class="rd-navbar-nav">
-                <li class="rd-nav-item active"><a class="rd-nav-link" href="client/home/home">Home</a>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/home">Home</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/product/listproduct">Properties</a>
                     <!-- RD Navbar Dropdown-->
@@ -20,7 +20,7 @@
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-property.html">Single Property</a></li>
                     </ul>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">About Us</a>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/about">About Us</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/news/listnews">Blog</a>
                     <!-- RD Navbar Dropdown-->
@@ -37,7 +37,7 @@
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Contact Us</a>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/contact">Contact Us</a>
                 </li>
             </ul>
 

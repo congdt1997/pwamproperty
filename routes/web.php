@@ -111,6 +111,7 @@ Route::group(['prefix' => 'client'], function(){
         Route::get('home','ClientController@getHome');
         Route::get('error','ClientController@getError');
         Route::get('about','ClientController@getAbout');
+        Route::get('contact','ClientController@getContact');
 
         Route::get('home-logout','UserController@getLogout');
         Route::post('home-login','UserController@postLogin');
