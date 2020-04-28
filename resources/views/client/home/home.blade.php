@@ -3,7 +3,7 @@
     <section class="section">
         <div class="range">
             <div class="cell-xl-6_lg box-1-cell height-fill context-dark">
-                <div class="box-1-bg-shape"><img class="box-1-bg-image" src="client_asset/images/bg-shape-1.png" alt="" role="presentation"></div>
+                <div class="box-1-bg-shape"><img class="box-1-bg-image" src="client_asset/images/home/search.jpg" alt="" role="presentation"></div>
                 <div class="cell-inner box-1-outer">
                     <div class="box-1">
                         <h2>Find Your Property</h2>
@@ -244,7 +244,7 @@
         </div>
     </section>
     <!-- Counters-->
-    <section class="section parallax-container" data-parallax-img="images/bg-02-1920x916.jpg">
+    <section class="section parallax-container" data-parallax-img="client_asset/images/home/counter.jpg">
         <div class="parallax-content section-lg context-dark text-center">
             <div class="container">
                 <div class="row row-30">

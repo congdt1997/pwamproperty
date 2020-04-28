@@ -19,6 +19,10 @@ class ClientController extends Controller
     {
         return view('client.home.error');
     }
+    public function getAbout()
+    {
+        return view('client.home.about');
+    }
 
     public function getHome()
     {
@@ -105,5 +109,15 @@ class ClientController extends Controller
     public function getNewsdetail($id){
         $news = News::find($id);
         return view('client.news.newsdetail',['news'=> $news]);
+    }
+    // sort price low to high
+    public function postSortProperty(){
+        $properties = Property::orderBy('price', 'asc')->paginate(4);
+        return view('client.product.listproduct',['properties'=> $properties]);
+    }
+    // sort price high to low
+    public function postSortProperty2(){
+        $properties = Property::orderBy('price', 'desc')->paginate(4);
+        return view('client.product.listproduct',['properties'=> $properties]);
     }
 }

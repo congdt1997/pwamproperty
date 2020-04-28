@@ -110,6 +110,7 @@ Route::group(['prefix' => 'client'], function(){
     Route::group(['prefix' => 'home'], function(){
         Route::get('home','ClientController@getHome');
         Route::get('error','ClientController@getError');
+        Route::get('about','ClientController@getAbout');
 
         Route::get('home-logout','UserController@getLogout');
         Route::post('home-login','UserController@postLogin');
@@ -131,9 +132,10 @@ Route::group(['prefix' => 'client'], function(){
 
     Route::group(['prefix' => 'product'], function(){
         Route::get('detail/{id}','ClientController@getProperty');
-//        Route::post('detail','ClientController@postProperty');
-        Route::get('listproduct','ClientController@getListproduct');
 
+        Route::get('listproduct','ClientController@getListproduct');
+        Route::post('listproduct','ClientController@postSortProperty');
+        Route::post('listproduct2','ClientController@postSortProperty2');
         Route::post('detail/{id}','ReviewController@postReview');
     });
 

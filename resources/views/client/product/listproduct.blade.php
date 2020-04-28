@@ -25,34 +25,22 @@
                                 <li>
                                     <div class="form-wrap-group-1">
                                         <div class="form-wrap">
-                                            <select class="form-input select-filter" data-style="modern" data-placeholder="Publication Date" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                <option label="placeholder"></option>
-                                                <option value="2">Monday</option>
-                                                <option value="3">Tuesday</option>
-                                                <option value="4">Wednesday</option>
-                                                <option value="5">Thursday</option>
-                                                <option value="6">Friday</option>
-                                                <option value="7">Saturday</option>
-                                                <option value="8">Sunday</option>
-                                            </select>
+                                            <form  method="post" action="client/product/listproduct">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <div class="form-button">
+                                                    <button class="button button-block button-primary" type="submit">Low to high</button>
+                                                </div>
+                                            </form>
                                         </div>
                                         <div class="form-wrap">
-                                            <select class="form-input select-filter" data-style="modern" data-placeholder="Price Low to High" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                <option label="placeholder"></option>
-                                                <option value="1">Price Low to High</option>
-                                                <option value="2">Price High to Low</option>
-                                                <option value="3">Most Popular</option>
-                                                <option value="4">Top Rated</option>
-                                                <option value="5">Best Sellers</option>
-                                            </select>
+                                            <form  method="post" action="client/product/listproduct2">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <div class="form-button">
+                                                    <button class="button button-block button-primary" type="submit">High to low</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <ul class="list-layout">
-                                        <li><a class="icon icon-2 fa-reorder" href="#"></a></li>
-                                        <li><a class="icon icon-2 mdi mdi-view-grid active" href="#"></a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
