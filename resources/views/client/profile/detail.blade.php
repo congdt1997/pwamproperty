@@ -5,7 +5,13 @@
             <div class="layout-bordered">
     <div class="layout-bordered-aside">
         <div class="layout-bordered-aside-inner">
-            <h2>Your profile: </h2><br>
+            <h2>Your profile:
+                @if($user -> verified_email == 1)
+                    <i class="fad fa-check-circle"></i>
+                    @else
+                    Not Yet
+                @endif
+            </h2><br>
             <h4>Name: {{$user->fullname}}</h4>
             <br>
             <img src="admin_asset/images/upload/user/{{$user->image}}" alt="" style=" height: 280px; width:auto; "/>

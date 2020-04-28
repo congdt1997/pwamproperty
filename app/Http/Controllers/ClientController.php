@@ -6,6 +6,7 @@ use App\News;
 use App\TypeOfProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 use App\Property;
 use App\User;
 use App\Role;
@@ -87,13 +88,14 @@ class ClientController extends Controller
         $properties = Property::find($id);
         $user = User::all();
         $location = Location::all();
+        $typeproperties = TypeOfProperty::all();
         $review = Review::all();
         foreach($review as $re){
             if ($re -> idProperty == $properties -> id){
                 $count++;
             }
         }
-        return view('client.product.detail',['count'=> $count, 'review'=> $review, 'location'=> $location, 'user'=> $user, 'properties'=> $properties]);
+        return view('client.product.detail',['typeproperties'=> $typeproperties, 'count'=> $count, 'review'=> $review, 'location'=> $location, 'user'=> $user, 'properties'=> $properties]);
     }
 
     public function  getListproduct(){
@@ -128,12 +130,21 @@ class ClientController extends Controller
         return view('client.product.listproduct',['typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
     }
 
+//    public function postSearchproduct(Request $request){
+//        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+//        $locationName = $request -> locationName;
+////        $typeProperty = $request -> typeProperties;
+//        $location = Location::where('id', 'like', "%$locationName%")->get();
+//        $typeproperties = TypeOfProperty::all();
+//        return view('client.product.showproduct',['locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
+//    }
     public function postSearchproduct(Request $request){
-        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+
         $locationName = $request -> locationName;
-//        $typeProperty = $request -> typeProperties;
-        $location = Location::where('id', 'like', "%$locationName%")->get();
+        $typeProperty = $request -> typeProperties;
+        $location = Location::all();
         $typeproperties = TypeOfProperty::all();
-        return view('client.product.showproduct',['locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
+        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+        return view('client.product.showproduct',['typeProperty'=> $typeProperty, 'locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
     }
 }

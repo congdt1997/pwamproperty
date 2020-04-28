@@ -88,6 +88,14 @@
                                                 @endif
                                              @endforeach
                                         </dl>
+                                        <dl class="list-terms-inline">
+                                            <dt>Type Of Properties:</dt>
+                                            @foreach($typeproperties as $type)
+                                                @if($type->id == $properties -> idType)
+                                                    <dd> {{$type -> typeProperty}}</dd>
+                                                @endif
+                                            @endforeach
+                                        </dl>
 
                                     </div>
                                 </div>
@@ -192,12 +200,14 @@
                         <article class="post-comment">
                             @foreach($user as $us)
                                 @if($us -> id == $re->idUser)
-                                <div class="post-comment-left"><img class="img-round" src="admin_asset/images/upload/user/{{$us -> image}}" alt="" width="65" height="66"/>
+                                <div class="post-comment-left"><img class="img-round" @if(isset($us -> image))src="admin_asset/images/upload/user/{{$us -> image}}" @else src="client_asset/images/blog-post-comment-02-60x62.jpg"  @endif alt="" width="65" height="66"/>
                                 </div>
 
                             <div class="post-comment-main">
                                 <div class="post-comment-title">
-                                    <h5>{{$us -> fullname}}</h5>
+                                    <h5>{{$us -> fullname}}@if($us -> verified_email == 1)
+                                            <i class="fad fa-check-circle"></i>
+                                        @endif</h5>
                                     <span class="post-comment-title-time">{{$re->created_at}}</span>
                                 </div>
                                 <div class="post-comment-text">
@@ -215,13 +225,14 @@
                         @endforeach
 
                         @if(isset($user_success))
-                            <star></star>
                         <article class="post-comment">
-                            <div class="post-comment-left"><img class="img-round" src="admin_asset/images/upload/user/{{$user_success -> image}}" alt="" width="65" height="66"/>
+                            <div class="post-comment-left"><img class="img-round" @if(isset($user_success -> image))src="admin_asset/images/upload/user/{{$user_success -> image}}" @else src="client_asset/images/blog-post-comment-02-60x62.jpg"  @endif alt="" width="65" height="66"/>
                             </div>
                             <div class="post-comment-main">
                                 <div class="post-comment-title">
-                                    <h5>{{$user_success -> fullname}}</h5>
+                                    <h5>{{$user_success -> fullname}} @if($user_success -> verified_email == 1)
+                                            <i class="fad fa-check-circle"></i>
+                                        @endif</h5>
                                 </div>
                                 <form  method="post" action="client/product/detail/{{$properties->id}}">
                                     <input type="hidden" name="_token" value="{{csrf_token('')}}">
