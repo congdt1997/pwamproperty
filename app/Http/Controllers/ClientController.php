@@ -116,11 +116,24 @@ class ClientController extends Controller
     // sort price low to high
     public function postSortProperty(){
         $properties = Property::orderBy('price', 'asc')->paginate(4);
-        return view('client.product.listproduct',['properties'=> $properties]);
+        $location = Location::all();
+        $typeproperties = TypeOfProperty::all();
+        return view('client.product.listproduct',['typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
     }
     // sort price high to low
     public function postSortProperty2(){
         $properties = Property::orderBy('price', 'desc')->paginate(4);
-        return view('client.product.listproduct',['properties'=> $properties]);
+        $location = Location::all();
+        $typeproperties = TypeOfProperty::all();
+        return view('client.product.listproduct',['typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
+    }
+
+    public function postSearchproduct(Request $request){
+        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+        $locationName = $request -> locationName;
+//        $typeProperty = $request -> typeProperties;
+        $location = Location::where('id', 'like', "%$locationName%")->get();
+        $typeproperties = TypeOfProperty::all();
+        return view('client.product.showproduct',['locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
     }
 }

@@ -24,15 +24,15 @@
                         <div class="layout-bordered-aside-group">
                             <dl class="list-terms-1">
                                 <dt>Client Support:</dt>
-                                <dd><span class="icon mdi-phone mdi"></span><a class="list-terms-1-link-big" href="tel:#">1-800-1234-567</a></dd>
+                                <dd><span class="icon mdi-phone mdi"></span><a class="list-terms-1-link-big" href="tel:#">096-2222-782</a></dd>
                             </dl>
                             <dl class="list-terms-1">
                                 <dt>E-mail:</dt>
-                                <dd><span class="icon mdi mdi-email-outline"></span><a href="mailto:#">info@demolink.org</a></dd>
+                                <dd><span class="icon mdi mdi-email-outline"></span><a href="mailto:#">pwam.realestate@gmail.com</a></dd>
                             </dl>
                             <dl class="list-terms-1">
                                 <dt>Main Office:</dt>
-                                <dd><span class="icon mdi mdi-map-marker"></span><a href="#">3015 Grand Ave, Coconut Grove,Merrick Way, FL 12345</a></dd>
+                                <dd><span class="icon mdi mdi-map-marker"></span><a href="#">142-144 PPT, District 6, Ho Chi Minh City</a></dd>
                             </dl>
                         </div>
                     </div>

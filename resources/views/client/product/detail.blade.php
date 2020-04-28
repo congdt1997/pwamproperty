@@ -215,6 +215,7 @@
                         @endforeach
 
                         @if(isset($user_success))
+                            <star></star>
                         <article class="post-comment">
                             <div class="post-comment-left"><img class="img-round" src="admin_asset/images/upload/user/{{$user_success -> image}}" alt="" width="65" height="66"/>
                             </div>

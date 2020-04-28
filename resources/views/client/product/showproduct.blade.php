@@ -47,23 +47,26 @@
                         <div class="col-12">
                             <div class="row row-50">
                                 @foreach($properties as $pro)
-                                <div class="col-md-6 col-lg-12 col-xl-6">
-                                    <!-- Product Classic-->
-                                    <article class="product-classic">
-                                        <div class="product-classic-media">
-                                            <div class="owl-carousel" data-items="1" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="0" data-mouse-drag="false"><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/>
+                                    @if($pro -> idLocation == $locationName)
+                                    <div class="col-md-6 col-lg-12 col-xl-6">
+                                        <!-- Product Classic-->
+                                        <article class="product-classic">
+                                            <div class="product-classic-media">
+                                                <div class="owl-carousel" data-items="1" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="0" data-mouse-drag="false"><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/>
+                                                </div>
+                                                <div class="product-classic-price"><span>{{$pro -> price}}</span></div>
                                             </div>
-                                            <div class="product-classic-price"><span>{{$pro -> price}}</span></div>
-                                        </div>
-                                        <h4 class="product-classic-title"><a href="client/product/detail/{{$pro->id}}">{{$pro -> introduction}}</a></h4>
-                                        <div class="product-classic-divider"></div>
-                                        <ul class="product-classic-list">
-                                            <li><span class="icon mdi mdi-vector-square"></span><span>{{$pro -> acreage}}</span></li>
-                                            <li><span class="icon hotel-icon-10"></span><span>{{$pro -> bathroom}}</span></li>
-                                            <li><span class="icon hotel-icon-05"></span><span>{{$pro -> bedroom}}</span></li>
-                                        </ul>
-                                    </article>
-                                </div>
+                                            <h4 class="product-classic-title"><a href="client/product/detail/{{$pro->id}}">{{$pro -> introduction}}</a></h4>
+                                            <div class="product-classic-divider"></div>
+                                            <ul class="product-classic-list">
+                                                <li><span class="icon mdi mdi-vector-square"></span><span>{{$pro -> acreage}}</span></li>
+                                                <li><span class="icon hotel-icon-10"></span><span>{{$pro -> bathroom}}</span></li>
+                                                <li><span class="icon hotel-icon-05"></span><span>{{$pro -> bedroom}}</span></li>
+                                            </ul>
+                                        </article>
+                                    </div>
+
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -79,13 +82,13 @@
                             <div class="block-info">
                                 <h3>Find Your Property</h3>
                                 <br>
-                                <form method="post" action="client/product/showproduct">
+                                <form method="post" action="client/product/listproduct">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-wrap form-wrap-validation">
                                         <select class="form-input select-filter" data-style="modern" data-placeholder="Choose Location" name="locationName" class="form-control-sm form-control">
-                                            <option value="none" selected="">Location</option>
+
                                             @foreach($location as $loca)
-                                                <option value={{$loca -> id}}>{{$loca -> locationName}}</option>
+                                                <option value="{{$locationName}}>{{$loca -> locationName}}" selected="">{{$loca -> locationName}}</option>
                                             @endforeach
                                         </select>
 
@@ -184,3 +187,4 @@
         </div>
     </section>
 @endsection
+
