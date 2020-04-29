@@ -41,11 +41,58 @@
                     <div class="layout-bordered-main-inner">
                         <h2>Get in Touch</h2>
                         <!-- RD Mailform-->
-                        <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $er)
+                                    {{$er}}<br>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if(session('notification'))
+                            <div class="alert alert-success">
+                                {{session('notification')}}
+                            </div>
+                        @endif
+                        @if(isset($user_success))
+                            <form  method="post" action="client/home/contact">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                <div class="row row-20">
+                                    <div class="col-md-12">
+                                        <div class="form-wrap" >
+                                            <input class="form-input" id="contact-name" type="text" readonly value="{{$user_success -> fullname}}" name="namefeedback" data-constraints="@Required">
+                                            <label class="form-label" for="contact-name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-wrap" >
+                                            <input class="form-input" id="contact-email" type="email" readonly value="{{$user_success -> email}}" name="email" data-constraints="@Email @Required">
+                                            <label class="form-label" for="contact-email">E-mail</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-wrap" >
+                                            <input class="form-input" id="contact-phone" type="text" readonly value="{{$user_success -> phone}}" name="phone" data-constraints="@PhoneNumber">
+                                            <label class="form-label" for="contact-phone" >Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-wrap">
+                                            <label class="form-label" for="contact-message">Message</label>
+                                            <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="button button-sm button-primary" type="submit">Send message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        @else
+                        <form  method="post" action="client/home/contact">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="row row-20">
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                                        <input class="form-input" id="contact-name" type="text" name="namefeedback" data-constraints="@Required">
                                         <label class="form-label" for="contact-name">Your Name</label>
                                     </div>
                                 </div>
@@ -72,6 +119,7 @@
                                 </div>
                             </div>
                         </form>
+                        @endif
                     </div>
                 </div>
             </div>

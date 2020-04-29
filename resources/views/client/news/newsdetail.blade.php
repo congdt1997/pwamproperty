@@ -1,8 +1,8 @@
 @extends('client.layout.index')
 @section('content')
-    <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/breadcrumbs-bg-05-1922x441.jpg);">
+    <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(client_asset/images/home/news.jpg);">
         <div class="container">
-            <h2 class="breadcrumbs-custom-title">Special Unveiling of 568  <br> N. Tigertail Road</h2>
+            <h2 class="breadcrumbs-custom-title">{{$news -> title}}</h2>
         </div>
     </section>
     <section class="section-xs bg-white">

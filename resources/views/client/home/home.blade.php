@@ -543,48 +543,22 @@
         <div class="container">
             <h2 class="heading-decoration-1"><span class="heading-inner">Latest Blog Posts</span></h2>
             <div class="row row-40 row-lg-60">
-                <div class="col-md-6 col-xl-4">
-                    <article class="post-default"><a class="post-default-image" href="blog-post.html"><img src="client_asset/images/blog-01-736x540.jpg" alt="" width="736" height="540"/></a>
-                        <div class="post-default-body">
-                            <div class="post-default-title">
-                                <h4><a href="blog-post.html">Special Unveiling of 568 N. Tigertail Road</a></h4>
+                @foreach($news as $ns)
+                    <div class="col-md-6 col-xl-4">
+                        <article class="post-default"><a class="post-default-image" href="blog-post.html"><img src="admin_asset/images/upload/news/{{$ns->image}}" alt="" width="736" height="540"/></a>
+                            <div class="post-default-body">
+                                <div class="post-default-title">
+                                    <h4><a href="client/news/newsdetail/{{$ns -> id}}">{{$ns -> title}}</a></h4>
+                                </div>
+                                <div class="post-default-divider"></div>
+                                <div class="post-default-text">
+                                    <p>Our Principal and Partner, Samuel McMillan, recently celebrated the unveiling of 568 N. Tigertail Road, a newly-constructed estate</p>
+                                </div>
+                                <div class="post-default-time"><span class="icon mdi mdi-clock"></span><a href="blog-post.html">{{$ns -> created_at}}</a></div>
                             </div>
-                            <div class="post-default-divider"></div>
-                            <div class="post-default-text">
-                                <p>Our Principal and Partner, Samuel McMillan, recently celebrated the unveiling of 568 N. Tigertail Road, a newly-constructed estate</p>
-                            </div>
-                            <div class="post-default-time"><span class="icon mdi mdi-clock"></span><a href="blog-post.html">March 15, 2020</a></div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <article class="post-default"><a class="post-default-image" href="blog-post.html"><img src="client_asset/images/blog-02-736x540.jpg" alt="" width="736" height="540"/></a>
-                        <div class="post-default-body">
-                            <div class="post-default-title">
-                                <h4><a href="blog-post.html">Turks and Caicos Villa to be Sold for Record $7.6M</a></h4>
-                            </div>
-                            <div class="post-default-divider"></div>
-                            <div class="post-default-text">
-                                <p>The Agency is pleased to announce the sale of 24 Cherokee Road for $7.625 million—the highest-priced residential sale in Turks and</p>
-                            </div>
-                            <div class="post-default-time"><span class="icon mdi mdi-clock"></span><a href="blog-post.html">March 15, 2020</a></div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <article class="post-default"><a class="post-default-image" href="blog-post.html"><img src="client_asset/images/blog-03-736x540.jpg" alt="" width="736" height="540"/></a>
-                        <div class="post-default-body">
-                            <div class="post-default-title">
-                                <h4><a href="blog-post.html">How We Build a Better LA for Fifth Year in a Row</a></h4>
-                            </div>
-                            <div class="post-default-divider"></div>
-                            <div class="post-default-text">
-                                <p>Last week, we partnered with Habitat for Humanity of Greater Los Angeles (Habitat LA) for the fifth year in a row for a build day </p>
-                            </div>
-                            <div class="post-default-time"><span class="icon mdi mdi-clock"></span><a href="blog-post.html">March 15, 2020</a></div>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

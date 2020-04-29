@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use App\News;
 use App\TypeOfProperty;
 use Illuminate\Http\Request;
@@ -28,11 +29,37 @@ class ClientController extends Controller
     {
         return view('client.home.contact');
     }
+    public function postContact(Request $request)
+    {
+        $this -> validate($request,
+            [
+                'namefeedback' => 'required|min:3',
+                'email' => 'required|email',
+                'phone' => 'required|min:10',
+                'message' => 'required|min:3'
+            ],[
+                'namefeedback.required'=>'You must input this field!!!',
+                'namefeedback.min'=>'You must more than 3 characters!',
+                'email.required' =>'You have to enter the Email',
+                'phone.required' =>'You have to enter the phone number',
+                'phone.min'=>'You must input phone number more than 10 number',
+                'message.required'=>'You must input Message field!!!',
+                'message.min'=>'You must more than 3 characters!',
+            ]);
+        $feedback = new Feedback();
+        $feedback -> nameFeedback = $request -> namefeedback;
+        $feedback -> emailFeedback = $request -> email;
+        $feedback -> phone = $request -> phone;
+        $feedback -> message = $request -> message;
+        $feedback -> save();
+        return redirect('client/home/contact')->with('notification', 'Send Feedback successfully');
+    }
     public function getHome()
     {
         $properties = Property::orderBy('created_at', 'desc')->take(6)->get();
+        $news = News::orderBy('created_at', 'desc')->take(3)->get();
         $user = User::all();
-        return view('client.home.home',['user'=> $user, 'properties'=> $properties]);
+        return view('client.home.home',['news'=> $news, 'user'=> $user, 'properties'=> $properties]);
     }
 
     public function getProfile()
