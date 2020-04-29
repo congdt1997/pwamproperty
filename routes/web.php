@@ -39,6 +39,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
 
         Route::get('delete/{id}','NewsController@getDelete');
     });
+    Route::group(['prefix' => 'feedback'], function(){
+        Route::get('list','FeedbackController@getList');
+
+        Route::get('add','FeedbackController@getAdd');
+        Route::post('add','FeedbackController@postAdd');
+
+        Route::get('delete/{id}','FeedbackController@getDelete');
+    });
     Route::group(['prefix' => 'typeproperty'], function(){
         Route::get('list','TypeofpropertyController@getList');
 

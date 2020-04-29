@@ -130,6 +130,7 @@ class ClientController extends Controller
         return view('client.product.listproduct',['typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
     }
 
+
 //    public function postSearchproduct(Request $request){
 //        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
 //        $locationName = $request -> locationName;

@@ -25,26 +25,7 @@
                             <ul class="block-info-1">
                                 <li>
                                     <div class="form-wrap-group-1">
-                                        <div class="form-wrap">
-                                            <form method="post" action="client/product/listproduct">
-                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                                <div class="form-button">
-                                                    <button class="button button-block button-primary" type="submit">Low
-                                                        to high
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="form-wrap">
-                                            <form method="post" action="client/product/listproduct2">
-                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                                <div class="form-button">
-                                                    <button class="button button-block button-primary" type="submit">
-                                                        High to low
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
+
                                     </div>
                                 </li>
                             </ul>
@@ -52,7 +33,7 @@
                         <div class="col-12">
                             <div class="row row-50">
                                 <?php
-                                $property = true;
+                                $property = null;
                                 ?>
                                 @foreach($properties as $pro)
                                     @if(($locationName != 'none') && ($typeProperty != 'none'))
@@ -93,9 +74,16 @@
                                                     </ul>
                                                 </article>
                                             </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
                                         @else
                                             <?php
-                                            $property = false;
+                                                if ($property == true){
+
+                                                } else {
+                                                    $property = false;
+                                                }
                                             ?>
                                         @endif
                                     @elseif($locationName != 'none')
@@ -136,9 +124,16 @@
                                                     </ul>
                                                 </article>
                                             </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
                                             @else
                                                 <?php
-                                                $property = false;
+                                                if ($property == true){
+
+                                                } else {
+                                                    $property = false;
+                                                }
                                                 ?>
                                         @endif
                                     @elseif($typeProperty != 'none')
@@ -179,9 +174,16 @@
                                                     </ul>
                                                 </article>
                                             </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
                                             @else
                                                 <?php
-                                                $property = false;
+                                                if ($property == true){
+
+                                                } else {
+                                                    $property = false;
+                                                }
                                                 ?>
                                         @endif
 
@@ -210,10 +212,12 @@
                                         <select class="form-input select-filter" data-style="modern"
                                                 data-placeholder="Choose Location" name="locationName"
                                                 class="form-control-sm form-control">
-
+                                            <option value="none" selected="">Location</option>
                                             @foreach($location as $loca)
+                                                @if($loca -> id == $locationName)
                                                 <option value="{{$locationName}}>{{$loca -> locationName}}"
                                                         selected="">{{$loca -> locationName}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
 
@@ -224,7 +228,10 @@
                                                 class="form-control-sm form-control">
                                             <option value="none" selected="">Type Of Properties</option>
                                             @foreach($typeproperties as $type)
-                                                <option value={{$type -> id}}>{{$type -> typeProperty}}</option>
+                                                @if($type -> id == $typeProperty)
+                                                <option value="{{$typeProperty}}>{{$type -> typeProperty}}"
+                                                selected="">{{$type -> typeProperty}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
