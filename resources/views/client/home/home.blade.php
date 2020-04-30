@@ -12,26 +12,21 @@
                             <div class="row row-x-20 row-20">
                                 <div class="col-sm-6 col-lg-12 col-xl-6">
                                     <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" name="search-property-location" data-style="modern" data-class="select-dropdown-context-dark" data-placeholder="Choose Location" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">Alaska</option>
-                                            <option value="3">Arizona</option>
-                                            <option value="4">Arkansas</option>
-                                            <option value="5">California</option>
-                                            <option value="6">Colorado</option>
-                                            <option value="7">Connecticut</option>
-                                            <option value="8">Delaware</option>
-                                            <option value="9">Florida</option>
+                                        <select class="form-input select-filter" data-style="modern" data-placeholder="Choose Location" name="locationName" class="form-control-sm form-control">
+                                            <option value="none" selected="">Location</option>
+                                            @foreach($location as $loca)
+                                                <option value={{$loca -> id}}>{{$loca -> locationName}}</option>
+                                            @endforeach
                                         </select><span class="select-arrow"></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" name="search-property-type" data-style="modern" data-class="select-dropdown-context-dark" data-placeholder="Property Type" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">Apartment</option>
-                                            <option value="3">House</option>
-                                            <option value="4">Lot</option>
+                                        <select class="form-input select-filter" data-style="modern" data-placeholder="Choose Location" name="typeProperties" class="form-control-sm form-control">
+                                            <option value="none" selected="">Type Of Properties</option>
+                                            @foreach($typeproperties as $type)
+                                                <option value={{$type -> id}}>{{$type -> typeProperty}}</option>
+                                            @endforeach
                                         </select><span class="select-arrow"></span>
                                     </div>
                                 </div>

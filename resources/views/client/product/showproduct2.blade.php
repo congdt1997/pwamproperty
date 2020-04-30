@@ -38,7 +38,8 @@
                                 $property = null;
                                 ?>
                                 @foreach($properties as $pro)
-                                    @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)))
+                                    @if(($locationName != 'none') && ($typeProperty != 'none'))
+                                        @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ($pro -> idLocation == $locationName && $pro -> idType == $typeProperty))
                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                 <!-- Product Classic-->
                                                 <article class="product-classic">
@@ -78,19 +79,170 @@
                                             <?php
                                             $property = true;
                                             ?>
-                                        @else
-                                            <?php
-                                            if ($property == true){
+                                            @else
+                                                <?php
+                                                if ($property == true) {
 
-                                            } else {
-                                                $property = false;
-                                            }
-                                            ?>
-                                    @endif
-                                @endforeach
-                                @if($property == false)
-                                    <div>Nothing</div>
-                                @endif
+                                                } else {
+                                                    $property = false;
+                                                }
+                                                ?>
+                                            @endif
+                                        @elseif($locationName != 'none')
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ($pro -> idLocation == $locationName))
+                                                <div class="col-md-6 col-lg-12 col-xl-6">
+                                                    <!-- Product Classic-->
+                                                    <article class="product-classic">
+                                                        <div class="product-classic-media">
+                                                            <div class="owl-carousel" data-items="1" data-nav="true"
+                                                                 data-stage-padding="0" data-loop="false"
+                                                                 data-margin="0" data-mouse-drag="false"><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/>
+                                                            </div>
+                                                            <div class="product-classic-price">
+                                                                <span>{{$pro -> price}}</span></div>
+                                                        </div>
+                                                        <h4 class="product-classic-title"><a
+                                                                href="client/product/detail/{{$pro->id}}">{{$pro -> introduction}}</a>
+                                                        </h4>
+                                                        <div class="product-classic-divider"></div>
+                                                        <ul class="product-classic-list">
+                                                            <li><span
+                                                                    class="icon mdi mdi-vector-square"></span><span>{{$pro -> acreage}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-10"></span><span>{{$pro -> bathroom}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-05"></span><span>{{$pro -> bedroom}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </article>
+                                                </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
+                                                @else
+                                                    <?php
+                                                    if ($property == true) {
+
+                                                    } else {
+                                                        $property = false;
+                                                    }
+                                                    ?>
+                                            @endif
+                                        @elseif($typeProperty != 'none')
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ( $pro -> idType == $typeProperty))
+                                                <div class="col-md-6 col-lg-12 col-xl-6">
+                                                    <!-- Product Classic-->
+                                                    <article class="product-classic">
+                                                        <div class="product-classic-media">
+                                                            <div class="owl-carousel" data-items="1" data-nav="true"
+                                                                 data-stage-padding="0" data-loop="false"
+                                                                 data-margin="0" data-mouse-drag="false"><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/>
+                                                            </div>
+                                                            <div class="product-classic-price">
+                                                                <span>{{$pro -> price}}</span></div>
+                                                        </div>
+                                                        <h4 class="product-classic-title"><a
+                                                                href="client/product/detail/{{$pro->id}}">{{$pro -> introduction}}</a>
+                                                        </h4>
+                                                        <div class="product-classic-divider"></div>
+                                                        <ul class="product-classic-list">
+                                                            <li><span
+                                                                    class="icon mdi mdi-vector-square"></span><span>{{$pro -> acreage}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-10"></span><span>{{$pro -> bathroom}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-05"></span><span>{{$pro -> bedroom}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </article>
+                                                </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
+                                                @else
+                                                    <?php
+                                                    if ($property == true) {
+
+                                                    } else {
+                                                        $property = false;
+                                                    }
+                                                    ?>
+                                            @endif
+                                        @elseif(($locationName == 'none') && ($typeProperty == 'none'))
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)))
+                                                <div class="col-md-6 col-lg-12 col-xl-6">
+                                                    <!-- Product Classic-->
+                                                    <article class="product-classic">
+                                                        <div class="product-classic-media">
+                                                            <div class="owl-carousel" data-items="1" data-nav="true"
+                                                                 data-stage-padding="0" data-loop="false"
+                                                                 data-margin="0" data-mouse-drag="false"><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/><img
+                                                                    src="admin_asset/images/upload/properties/{{$pro->image}}"
+                                                                    alt="" width="480" height="287"/>
+                                                            </div>
+                                                            <div class="product-classic-price">
+                                                                <span>{{$pro -> price}}</span></div>
+                                                        </div>
+                                                        <h4 class="product-classic-title"><a
+                                                                href="client/product/detail/{{$pro->id}}">{{$pro -> introduction}}</a>
+                                                        </h4>
+                                                        <div class="product-classic-divider"></div>
+                                                        <ul class="product-classic-list">
+                                                            <li><span
+                                                                    class="icon mdi mdi-vector-square"></span><span>{{$pro -> acreage}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-10"></span><span>{{$pro -> bathroom}}</span>
+                                                            </li>
+                                                            <li><span
+                                                                    class="icon hotel-icon-05"></span><span>{{$pro -> bedroom}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </article>
+                                                </div>
+                                                <?php
+                                                $property = true;
+                                                ?>
+                                            @else
+                                                <?php
+                                                if ($property == true) {
+
+                                                } else {
+                                                    $property = false;
+                                                }
+                                                ?>
+                                            @endif
+                                        @endif
+                                        @endforeach
+                                        @if($property == false)
+                                            <div>Nothing</div>
+                                        @endif
                             </div>
                         </div>
                         <div class="col-12">
@@ -113,8 +265,8 @@
                                                 class="form-control-sm form-control">
                                             <option value="none" selected="">Price min</option>
 
-                                                    <option value="{{$price_min}}"
-                                                            selected="">{{$price_min}}</option>
+                                            <option value="{{$price_min}}"
+                                                    selected="">{{$price_min}}</option>
 
                                         </select>
 
@@ -125,8 +277,8 @@
                                                 class="form-control-sm form-control">
                                             <option value="none" selected="">Price max</option>
 
-                                                    <option value="{{$price_max}}"
-                                                            selected="">{{$price_max}}</option>
+                                            <option value="{{$price_max}}"
+                                                    selected="">{{$price_max}}</option>
 
                                         </select>
                                     </div>

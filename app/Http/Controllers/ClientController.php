@@ -58,9 +58,11 @@ class ClientController extends Controller
     public function getHome()
     {
         $properties = Property::orderBy('created_at', 'desc')->take(6)->get();
+        $location = Location::all();
+        $typeproperties = TypeOfProperty::all();
         $news = News::orderBy('created_at', 'desc')->take(3)->get();
         $user = User::all();
-        return view('client.home.home',['news'=> $news, 'user'=> $user, 'properties'=> $properties]);
+        return view('client.home.home',['location'=> $location,'typeproperties'=> $typeproperties,'news'=> $news, 'user'=> $user, 'properties'=> $properties]);
     }
 
     public function getProfile()
@@ -182,7 +184,11 @@ class ClientController extends Controller
         $price_max = $request -> range_max;
         $price_minacreage = $request -> range_minacreage;
         $price_maxacreage = $request -> range_maxacreage;
+        $locationName = $request -> locationName;
+        $typeProperty = $request -> typeProperties;
+        $location = Location::all();
+        $typeproperties = TypeOfProperty::all();
         $properties = Property::orderBy('created_at', 'desc')->paginate(8);
-        return view('client.product.showproduct2',['price_maxacreage' => $price_maxacreage, 'price_minacreage' => $price_minacreage, 'price_min' => $price_min, 'price_max' => $price_max, 'properties' => $properties]);
+        return view('client.product.showproduct2',['typeProperty'=> $typeProperty, 'locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'price_maxacreage' => $price_maxacreage, 'price_minacreage' => $price_minacreage, 'price_min' => $price_min, 'price_max' => $price_max, 'properties' => $properties]);
     }
 }
