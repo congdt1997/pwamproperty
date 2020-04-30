@@ -173,8 +173,15 @@
 
 
                             <div class="block-person-body">
-                                <h3 class="block-person-title">{{$us -> fullname}}</h3>
-                                <p class="block-person-cite">MyHome Broker</p>
+                                <h3 class="block-person-title">{{$us -> fullname}}@if($us -> verified_email == 1)
+                                        <i><img src="client_asset/images/about/check.png" style="height:20px; width:20px;"></i>
+                                    @endif</h3>
+                                @if($us -> verified_email == 1)
+                                    <p class="block-person-cite">Verified account</p>
+                                    @else
+                                    <p class="block-person-cite">Account is not verified</p>
+                                @endif
+
                                 <ul class="block-person-list">
                                     <li>
                                         <div class="block-person-link"><span class="icon mdi mdi-phone"></span><a href="tel:#">{{$us -> phone}}</a></div>
@@ -186,7 +193,7 @@
                                         <div class="block-person-link"><span class="icon mdi mdi-map-marker"></span><a class="text-spacing-50" href="mailto:#">{{$us -> address}}</a></div>
                                     </li>
                                     <li>
-                                        <div class="block-person-link"><span class="icon mdi fa-facebook"></span><a class="text-spacing-50" href="{{$us -> facebook}}">&nbsp;&nbsp;Click here</a></div>
+                                        <div class="block-person-link"><span class="icon mdi fa-facebook"></span><a target="_blank" class="text-spacing-50" href="{{$us -> facebook}}">&nbsp;&nbsp;Click here</a></div>
                                     </li>
                                 </ul>
                                 <a class="button button-primary" href="#">Get in Touch</a>
@@ -217,7 +224,7 @@
                             <div class="post-comment-main">
                                 <div class="post-comment-title">
                                     <h5>{{$us -> fullname}}@if($us -> verified_email == 1)
-                                            <i class="fad fa-check-circle"></i>
+                                            <i><img src="client_asset/images/about/check.png" style="height:20px; width:20px;"></i>
                                         @endif</h5>
                                     <span class="post-comment-title-time">{{$re->created_at}}</span>
                                 </div>
@@ -242,7 +249,7 @@
                             <div class="post-comment-main">
                                 <div class="post-comment-title">
                                     <h5>{{$user_success -> fullname}} @if($user_success -> verified_email == 1)
-                                            <i class="fad fa-check-circle"></i>
+                                            <i><img src="client_asset/images/about/check.png" style="height:20px; width:20px;"></i>
                                         @endif</h5>
                                 </div>
                                 <form  method="post" action="client/product/detail/{{$properties->id}}">

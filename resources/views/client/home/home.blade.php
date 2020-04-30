@@ -210,7 +210,7 @@
                     <div class="col-6 col-md-3">
                         <!-- Box counter-->
                         <article class="box-counter">
-                            <div class="box-counter-main"><span>860</span></div>
+                            <div class="box-counter-main"><span>{{$count_property}}</span></div>
                             <p class="box-counter-title">Properties on Map</p>
                         </article>
                     </div>
@@ -218,17 +218,16 @@
                         <!-- Box counter-->
                         <article class="box-counter">
                             <div class="box-counter-main">
-                                <div class="counter">29</div>
+                                <div class="counter">2</div>
                             </div>
-                            <p class="box-counter-title">Professional Agents</p>
+                            <p class="box-counter-title">Professional Partner</p>
                         </article>
                     </div>
                     <div class="col-6 col-md-3">
                         <!-- Box counter-->
                         <article class="box-counter">
                             <div class="box-counter-main">
-                                <div class="counter">10</div>
-                                <span>k</span>
+                                <div class="counter">{{$count_client}}</div>
                             </div>
                             <p class="box-counter-title">Happy Clients</p>
                         </article>
@@ -237,9 +236,9 @@
                         <!-- Box counter-->
                         <article class="box-counter">
                             <div class="box-counter-main">
-                                <div class="counter">15</div>
+                                <div class="counter">{{$count_location}}</div>
                             </div>
-                            <p class="box-counter-title">New Apartments Daily</p>
+                            <p class="box-counter-title">Popular Location</p>
                         </article>
                     </div>
                 </div>

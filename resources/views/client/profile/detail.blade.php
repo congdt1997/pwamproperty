@@ -7,7 +7,7 @@
         <div class="layout-bordered-aside-inner">
             <h2>Your profile:
                 @if($user -> verified_email == 1)
-                    <i class="fad fa-check-circle"></i>
+                    <i><img src="client_asset/images/about/check.png" style="height:30px; width:30px;"></i>
                     @else
                     Not Yet
                 @endif
