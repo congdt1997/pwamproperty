@@ -7,6 +7,11 @@
             @endforeach
         </div>
     @endif
+        @if(session('login_failed'))
+            <div class="alert alert-danger">
+                {{session('login_failed')}}
+            </div>
+        @endif
         <form class="rd-form form-1" action="client/home/home-login" method="POST">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div id="error" style="color: red;"></div>
@@ -19,29 +24,9 @@
                 <label class="form-label" for="navbar-login-password">Password</label>
             </div>
             <div class="form-wrap">
-                <button class="button button-sm button-primary button-block" id="btn_submit" type="submit">Sign in</button>
+                <button class="button button-sm button-primary button-block"  type="submit">Sign in</button>
             </div>
         </form>
 </div>
 
-<script type="text/javascript">
-    $("#btn_submit").on("click", function(){
-        var email = $("#email").val();
-        var password = $("#password").val();
-        var error = $("#error");
 
-        // resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
-        error.html("");
-        $.ajax({
-            url: "UserController.php",
-            method: "POST",
-            data: { email : email, password : password },
-            success : function(response){
-                if (response == 0) {
-                    error.html("Invalid email or password !");
-                }
-            }
-        });
-
-    });
-</script>

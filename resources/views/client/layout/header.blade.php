@@ -18,7 +18,7 @@
         @if(!isset($user_success))
         <div class="rd-navbar-aside-item">
             <div class="block-inline">
-                <button class="unit unit-spacing-xs align-items-center" data-rd-navbar-toggle="#navbar-login-register"><span class="unit-left"><span class="icon text-middle mdi mdi-login"></span></span><span class="unit-body"><span>Login/Register</span></span></button>
+                <button class="unit unit-spacing-xs align-items-center" id="logintest" data-rd-navbar-toggle="#navbar-login-register"><span class="unit-left"><span class="icon text-middle mdi mdi-login"></span></span><span class="unit-body"><span>Login/Register</span></span></button>
             </div>
 
             <div class="rd-navbar-popup bg-gray-12" id="navbar-login-register">

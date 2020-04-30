@@ -160,10 +160,21 @@ class UserController extends Controller
     }
 
     public function postLogin(Request $request){
+        $this -> validate($request, [
+            'email' => 'required|min:5|email',
+            'password' => 'required|min:8',
+        ],[
+
+            'email.required' =>'You have to enter the Email',
+            'email.min'=>'You must input more than 5 characters',
+            'password.min'=>'You must input more than 8 characters',
+            'password.required'=>'You must input password'
+
+        ]);
             if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
                 return back();
             }else{
-                return 0;
+                return back() -> with('login_failed','Your email or password is invalid!!!');
             }
     }
     public function getLogout(){
