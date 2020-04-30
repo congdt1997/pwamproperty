@@ -105,6 +105,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
     Route::group(['prefix' => 'feature'], function(){
         Route::get('add/{id}','FeatureController@getAdd');
         Route::post('add/{id}','FeatureController@postAdd');
+
+        Route::get('edit/{id}','FeatureController@getEdit');
+        Route::post('edit/{id}','FeatureController@postEdit');
     });
     Route::group(['prefix' => 'payment'], function(){
         Route::get('list','PaymentController@getList');
