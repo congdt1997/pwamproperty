@@ -17,6 +17,7 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('idLocation')->length(10);
             $table->unsignedInteger('idType')->length(10);
+            $table->unsignedInteger('idFeature')->length(10);
             $table->unsignedInteger('idReview')->length(10);
             $table->unsignedInteger('idUser')->length(10);
             $table->string('detailaddress');

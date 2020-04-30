@@ -102,6 +102,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
 
         Route::get('delete/{id}','PropertyController@getDelete');
     });
+    Route::group(['prefix' => 'feature'], function(){
+        Route::get('add/{id}','FeatureController@getAdd');
+        Route::post('add/{id}','FeatureController@postAdd');
+    });
     Route::group(['prefix' => 'payment'], function(){
         Route::get('list','PaymentController@getList');
     });

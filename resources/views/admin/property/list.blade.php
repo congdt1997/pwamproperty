@@ -50,8 +50,8 @@
                                     <th>Bedroom</th>
                                     <th>Bathroom</th>
                                     <th>Acreage</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Action</th>
+                                    <th>Feature</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -64,8 +64,12 @@
                                         <td>{{$pro -> bedroom}}</td>
                                         <td>{{$pro -> bathroom}}</td>
                                         <td>{{$pro -> acreage}}</td>
-                                        <td><i class="fa fa-pencil fa-fw"></i><a href="admin/property/edit/{{$pro->id}}">Edit</a></td>
-                                        <td><i class="fa fa-trash-o fa-fw"></i><a href="admin/property/delete/{{$pro->id}}">Delete</a></td>
+                                        <td><i class="fa fa-pencil fa-fw"></i><a href="admin/property/edit/{{$pro->id}}">Edit</a>|<i class="fa fa-trash-o fa-fw"></i><a href="admin/property/delete/{{$pro->id}}">Delete</a></td>
+                                        @if($pro -> idFeature != 0)
+                                            <td><a class="btn btn-secondary" href="admin/feature/edit/{{$pro->idFeature}}">Edit Features</a></td>
+                                            @else
+                                        <td><a class="btn btn-secondary" href="admin/feature/add/{{$pro->id}}">Add Features</a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
