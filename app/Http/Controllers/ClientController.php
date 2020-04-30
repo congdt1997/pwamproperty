@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feature;
 use App\Feedback;
 use App\News;
 use App\TypeOfProperty;
@@ -115,6 +116,7 @@ class ClientController extends Controller
         $properties = Property::find($id);
         $user = User::all();
         $location = Location::all();
+        $feature = Feature::all();
         $typeproperties = TypeOfProperty::all();
         $review = Review::all();
         foreach($review as $re){
@@ -122,7 +124,7 @@ class ClientController extends Controller
                 $count++;
             }
         }
-        return view('client.product.detail',['typeproperties'=> $typeproperties, 'count'=> $count, 'review'=> $review, 'location'=> $location, 'user'=> $user, 'properties'=> $properties]);
+        return view('client.product.detail',['feature'=> $feature, 'typeproperties'=> $typeproperties, 'count'=> $count, 'review'=> $review, 'location'=> $location, 'user'=> $user, 'properties'=> $properties]);
     }
 
     public function  getListproduct(){
@@ -174,5 +176,13 @@ class ClientController extends Controller
         $typeproperties = TypeOfProperty::all();
         $properties = Property::orderBy('created_at', 'desc')->paginate(8);
         return view('client.product.showproduct',['typeProperty'=> $typeProperty, 'locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'properties'=> $properties]);
+    }
+    public function postSearchproductRange(Request $request){
+        $price_min = $request -> range_min;
+        $price_max = $request -> range_max;
+        $price_minacreage = $request -> range_minacreage;
+        $price_maxacreage = $request -> range_maxacreage;
+        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+        return view('client.product.showproduct2',['price_maxacreage' => $price_maxacreage, 'price_minacreage' => $price_minacreage, 'price_min' => $price_min, 'price_max' => $price_max, 'properties' => $properties]);
     }
 }

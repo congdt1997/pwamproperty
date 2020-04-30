@@ -156,6 +156,8 @@ Route::group(['prefix' => 'client'], function(){
         Route::post('detail/{id}','ReviewController@postReview');
 
         Route::post('showproduct','ClientController@postSearchproduct');
+
+        Route::post('showproduct2','ClientController@postSearchproductRange');
     });
 
 });

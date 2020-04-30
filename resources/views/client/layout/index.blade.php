@@ -116,5 +116,6 @@
 <!-- Javascript-->
 <script src="client_asset/js/core.min.js"></script>
 <script src="client_asset/js/script.js"></script>
+@yield('script')
 </body>
 </html>

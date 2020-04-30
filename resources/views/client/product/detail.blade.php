@@ -103,31 +103,42 @@
                         </article>
                     </div>
                     <!-- Bootstrap collapse-->
-{{--                    <div class="card-group-custom card-group-corporate" id="accordion2" role="tablist" aria-multiselectable="false">--}}
-{{--                        <!-- Bootstrap card-->--}}
-{{--                        <article class="card card-custom card-corporate">--}}
-{{--                            <div class="card-header" id="accordion2-heading-1" role="tab">--}}
-{{--                                <div class="card-title"><a class="card-link" role="button" data-toggle="collapse" href="#accordion2-collapse-1" aria-controls="accordion2-collapse-1" aria-expanded="true"><span>Features</span>--}}
-{{--                                        <div class="card-arrow"></div></a></div>--}}
-{{--                            </div>--}}
-{{--                            <div class="collapse show" id="accordion2-collapse-1" role="tabpanel" aria-labelledby="accordion2-heading-1" data-parent="#accordion2">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <ul class="list-marked-2 layout-2">--}}
-{{--                                        <li>2 Stories</li>--}}
-{{--                                        <li>Basketball Court</li>--}}
-{{--                                        <li>Lawn</li>--}}
-{{--                                        <li>Gym</li>--}}
-{{--                                        <li>Fireplace</li>--}}
-{{--                                        <li>Sprinklers</li>--}}
-{{--                                        <li>Private Space</li>--}}
-{{--                                        <li>Balcony</li>--}}
-{{--                                        <li>Laundry</li>--}}
-{{--                                        <li>Ocean View</li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </article>--}}
-{{--                    </div>--}}
+                    <div class="card-group-custom card-group-corporate" id="accordion2" role="tablist" aria-multiselectable="false">
+                        <!-- Bootstrap card-->
+                        <article class="card card-custom card-corporate">
+                            <div class="card-header" id="accordion2-heading-1" role="tab">
+                                <div class="card-title"><a class="card-link" role="button" data-toggle="collapse" href="#accordion2-collapse-1" aria-controls="accordion2-collapse-1" aria-expanded="true"><span>Features</span>
+                                        <div class="card-arrow"></div></a></div>
+                            </div>
+                            <div class="collapse show" id="accordion2-collapse-1" role="tabpanel" aria-labelledby="accordion2-heading-1" data-parent="#accordion2">
+                                <div class="card-body">
+
+                                        @foreach($feature as $feat)
+                                        <ul class="list-marked-2 layout-2">
+                                            @if($feat -> id == $properties -> idFeature)
+                                                @if(($feat -> market != 0))
+                                                    <li>Market</li>
+                                                @endif
+                                                @if(($feat -> supermarket != 0))
+                                                    <li>Supermarket</li>
+                                                @endif
+                                                @if(($feat -> hospital != 0))
+                                                    <li>Hospital</li>
+                                                @endif
+                                                @if(($feat -> gym != 0))
+                                                    <li>Gym</li>
+                                                @endif
+                                                @if(($feat -> theater != 0))
+                                                    <li>Theater</li>
+                                                @endif
+                                            @endif
+                                        </ul>
+                                         @endforeach
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                     <!-- Bootstrap collapse-->
 {{--                    <div class="card-group-custom card-group-corporate" id="accordion3" role="tablist" aria-multiselectable="false">--}}
 {{--                        <!-- Bootstrap card-->--}}

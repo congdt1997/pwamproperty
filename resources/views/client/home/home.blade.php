@@ -7,7 +7,8 @@
                 <div class="cell-inner box-1-outer">
                     <div class="box-1">
                         <h2>Find Your Property</h2>
-                        <form class="rd-form">
+                        <form class="rd-form" action="client/product/showproduct2" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="row row-x-20 row-20">
                                 <div class="col-sm-6 col-lg-12 col-xl-6">
                                     <div class="form-wrap form-wrap-validation">
@@ -34,99 +35,23 @@
                                         </select><span class="select-arrow"></span>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-6 col-xl-4">
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" name="search-property-status" data-style="modern" data-class="select-dropdown-context-dark" data-placeholder="Property Status" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">For Sale</option>
-                                            <option value="3">For Rent</option>
-                                        </select><span class="select-arrow"></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-lg-6 col-xl-4">
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" name="search-property-bathrooms" data-style="modern" data-class="select-dropdown-context-dark" data-placeholder="Min Baths" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-lg-6 col-xl-4">
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" name="search-property-bedrooms" data-style="modern" data-class="select-dropdown-context-dark" data-placeholder="Min Beds" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
+                            <input type="hidden" name="range_min" class="rd-range-input1" id="range_min">
+                            <input type="hidden" name="range_max" class="rd-range-input2" id="range_max">
                             <div class="rd-range-outer">
-                                <p class="rd-range-caption">Price Range ($)</p>
+                                <p class="rd-range-caption">Price ($)</p>
                                 <!-- RD Range-->
-                                <div class="rd-range" data-min="50" data-max="10000" data-start="[50, 10000]" data-step="10" data-tooltip="true" data-min-diff="100"></div>
+                                <div class="rd-range" data-input=".rd-range-input1" data-input-2=".rd-range-input2"  data-min="50" data-max="20000" id="price_range" data-start="[50, 20000]" data-step="10" data-tooltip="true" data-min-diff="100"></div>
                             </div>
+                            <input  type="hidden" name="range_minacreage" class="rd-range-inputacreage1">
+                            <input  type="hidden" name="range_maxacreage" class="rd-range-inputacreage2">
                             <div class="rd-range-outer">
                                 <p class="rd-range-caption">Area (Sq Ft)</p>
                                 <!-- RD Range-->
-                                <div class="rd-range" data-min="70" data-max="20000" data-start="[70, 20000]" data-step="10" data-tooltip="true" data-min-diff="100"></div>
+                                <div class="rd-range" data-input=".rd-range-inputacreage1" data-input-2=".rd-range-inputacreage2" data-min="70" data-max="2000" data-start="[70, 2000]" data-step="10" data-tooltip="true" data-min-diff="50"></div>
                             </div>
                             <div class="layout-5">
-                                <div class="layout-5-item layout-5-item_primary">
-                                    <div class="panel-3" id="panel-3">
-                                        <div class="panel-3-header" data-multitoggle="#panel-3">
-                                            <div class="panel-3-toggle"></div>
-                                            <p class="panel-3-title">Look for certain features</p>
-                                        </div>
-                                        <div class="panel-3-content">
-                                            <div class="panel-3-content-inner">
-                                                <ul class="list-inline list-inline-sm">
-                                                    <li>
-                                                        <label class="checkbox-inline">
-                                                            <input name="checkbox-1" value="checkbox-1" type="checkbox">Central Heating
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkbox-inline">
-                                                            <input name="checkbox-2" value="checkbox-2" type="checkbox">Home Theater
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkbox-inline">
-                                                            <input name="checkbox-3" value="checkbox-3" type="checkbox">Lawn
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkbox-inline">
-                                                            <input name="checkbox-4" value="checkbox-4" type="checkbox">Wi-Fi
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkbox-inline">
-                                                            <input name="checkbox-5" value="checkbox-5" type="checkbox">Gym
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="layout-5-item"><a class="button button-primary-outline" href="search-results.html" style="min-width: 150px;">Search</a></div>
+                                <div class="layout-5-item"><button class="button button-primary-outline" type="submit" style="min-width: 150px;">Search</button></div>
                             </div>
                         </form>
                     </div>
@@ -574,4 +499,9 @@
                     <img src="client_asset/images/LogoCongKobu.png" alt="" width="145" height="35"/></a></div>
         </div>
     </section>
+
+
+@endsection
+@section('script')
+
 @endsection
