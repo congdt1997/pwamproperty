@@ -170,4 +170,13 @@ Route::group(['prefix' => 'client'], function(){
         Route::get('deletesubmit/{id}','ClientController@getDeletesubmit');
     });
 
+    Route::group(['prefix' => 'featureproduct'], function(){
+        Route::get('addfeature/{id}','ClientController@getAddfeature');
+        Route::post('addfeature/{id}','ClientController@postAddfeature');
+
+        Route::get('editfeature/{id}','ClientController@getEditfeature');
+        Route::post('editfeature/{id}','ClientController@postEditfeature');
+    });
+
+
 });

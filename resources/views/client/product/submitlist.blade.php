@@ -32,9 +32,9 @@
                     <td>{{$pro -> acreage}}</td>
                     <td><i class="fa fa-pencil fa-fw"></i><a href="client/product/editsubmit/{{$pro->id}}">Edit</a>|<i class="fa fa-trash-o fa-fw"></i><a href="client/product/deletesubmit/{{$pro->id}}">Delete</a></td>
                     @if($pro -> idFeature != 0)
-                        <td><a class="btn btn-secondary" href="client/product/editfeature/{{$pro->idFeature}}">Edit Features</a></td>
+                        <td><a class="btn btn-secondary" href="client/featureproduct/editfeature/{{$pro->idFeature}}">Edit Features</a></td>
                     @else
-                        <td><a class="btn btn-secondary" href="client/product/addfeature/{{$pro->id}}">Add Features</a></td>
+                        <td><a class="btn btn-secondary" href="client/featureproduct/addfeature/{{$pro->id}}">Add Features</a></td>
                     @endif
                 </tr>
                 @endif
