@@ -111,6 +111,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
     });
     Route::group(['prefix' => 'payment'], function(){
         Route::get('list','PaymentController@getList');
+
+        Route::get('confirm/{id}','PaymentController@getConfirm');
+
+        Route::get('notconfirm/{id}','PaymentController@getNotConfirm');
     });
     Route::group(['prefix' => 'review'], function(){
         Route::get('delete/{id}/{idProperty}','ReviewController@getDelete');

@@ -41,10 +41,12 @@
                             <td>{{$pay -> idTypeofcode}}</td>
                             <td>{{$pay -> code}}</td>
                             <td>{{$pay -> created_at}}</td>
-                            @if($pay -> comment != null)
+                            @if($pay -> comment == 'ok')
                             <td>Success</td>
-                                @else
-                            <td>Processing</td>
+                            @elseif($pay -> comment == 'not')
+                            <td>Fail</td>
+                            @elseif($pay -> comment == null)
+                             <td>Processing</td>
                             @endif
                         </tr>
                     @endif

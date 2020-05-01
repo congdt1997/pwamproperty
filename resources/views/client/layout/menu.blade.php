@@ -28,13 +28,12 @@
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">Blog post</a></li>
                     </ul>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
+                <li class="rd-nav-item"><a class="rd-nav-link">Pages</a>
                     <!-- RD Navbar Dropdown-->
                     <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/profile/detail">Profile</a></li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="coming-soon.html">Coming Soon</a></li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="404.html">404</a></li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/makepayment/historypayment">History Payment</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/product/submitlist">Your properties</a></li>
                     </ul>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/contact">Contact Us</a>
@@ -45,7 +44,7 @@
             @if($user_success->idRole == 1)
             <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="admin/dashboard/showdata">Go to Admin site</a>
             </div>
-                @elseif(($user_success->idRole == 3) && ($user_success->status != 1))
+                @elseif(($user_success->idRole == 3) && ($user_success->status == 0))
              <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="client/makepayment/becomemember">Become membership</a>
              </div>
                 @elseif(($user_success->idRole == 3) && ($user_success->status == 1))

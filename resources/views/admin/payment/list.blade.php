@@ -47,10 +47,9 @@
                                     <th>Created at</th>
                                     <th>Type of code</th>
                                     <th>Code</th>
-                                    <th>Comment</th>
                                     <th>User</th>
-                                    <th>View detail</th>
-                                    <th>Delete</th>
+                                    <th>Confirm</th>
+                                    <th>Cancel</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,12 +58,42 @@
                                         <td>{{$pay -> id}}</td>
                                         <td>{{$pay -> created_at}}</td>
                                         <td>{{$pay -> idTypeofcode}}</td>
-                                        <td>{{$pay -> code}}</td>
-                                        <td>{{$pay -> comment}}</td>
-                                        <td ><a href="admin/user/edit/{{$pay->idUser}}">{{$pay -> idUser}}</a></td>
-                                        <td><i class="fa fa-pencil fa-fw"></i><a href="admin/payment/edit/{{$pay->id}}">View Detail</a></td>
-                                        <td><i class="fa fa-trash-o fa-fw"></i><a href="admin/payment/delete/{{$pay->id}}">Delete</a></td>
-
+                                        <td>*100*{{$pay -> code}}#</td>
+                                        <td><a href="admin/user/edit/{{$pay->idUser}}">{{$pay -> idUser}}</a></td>
+                                        @if($pay -> comment == null)
+                                            <td>
+                                                <form action="admin/payment/confirm/{{$pay -> id}}" method="GET">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <input type="hidden" name="comment12" value="ok">
+                                                <button class="btn btn-secondary" type="submit">Confirm</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="admin/payment/notconfirm/{{$pay -> id}}" method="GET">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                    <input type="hidden" name="comment1" value="not">
+                                                    <button class="btn btn-secondary" type="submit">Cancel</button>
+                                                </form>
+                                            </td>
+                                        @elseif($pay -> comment == 'not')
+                                            <td>
+                                                <form action="admin/payment/confirm/{{$pay -> id}}" method="GET">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                    <input type="hidden" name="comment12" value="ok">
+                                                    <button class="btn btn-secondary" type="submit">Active</button>
+                                                </form>
+                                            </td>
+                                            <td>Done</td>
+                                        @elseif($pay -> comment == 'ok')
+                                            <td>
+                                                <form action="admin/payment/notconfirm/{{$pay -> id}}" method="GET">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                    <input type="hidden" name="comment12" value="not">
+                                                    <button class="btn btn-secondary" type="submit">Block</button>
+                                                </form>
+                                            </td>
+                                            <td>Done</td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -92,8 +121,8 @@
     <script src="admin_asset/assets/js/init/datatables-init.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#bootstrap-data-table-export').DataTable();
-        } );
+        });
     </script>
 @endsection
