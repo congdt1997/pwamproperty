@@ -48,10 +48,9 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="layout-bordered-main">
                     <div class="layout-bordered-main-inner">
-                        <h2>Change Profile</h2>
+                        <h2>Enter your property</h2>
                         <!-- RD Mailform-->
                         @if(count($errors) > 0)
                             <div class="alert alert-danger">
@@ -65,91 +64,94 @@
                                 {{session('notification')}}
                             </div>
                         @endif
-                        <form action="client/profile/detail" method="POST" enctype="multipart/form-data">
+                        <form  action="client/product/editsubmit/{{$properties -> id}}" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="row row-20">
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-name" type="text"
-                                               value="{{$user->fullname}}" name="fullname" data-constraints="@Required">
-                                        <label class="form-label" for="contact-name">Your Name</label>
+                                        <input class="form-input" id="contact-intro" value="{{$properties -> introduction}}" type="text" name="introduction" data-constraints="@Required">
+                                        <label class="form-label" for="contact-intro">Introduction</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-email" type="email" name="email"
-                                               value="{{$user->email}}" data-constraints="@Email @Required">
-                                        <label class="form-label" for="contact-email">E-mail</label>
+                                        <select name="idType" id="contact-location" class="col-md-12">
+                                            <option value="none" selected="" readonly>Select type of property</option>
+                                            @foreach($typeofproperties as $typepro)
+                                                @if($typepro -> id == $properties -> idType)
+                                                    <option value="{{$typepro -> id}}"
+                                                            selected>{{$typepro -> typeProperty}}</option>
+                                                @else
+                                                    <option
+                                                        value={{$typepro -> id}}>{{$typepro -> typeProperty}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-phone" type="password" name="password"
-                                               value="{{$user->password}}">
-                                        <label class="form-label" for="contact-phone">Phone</label>
+                                        <select name="idLocation" id="contact-location" class="col-md-12">
+                                            <option value="none" selected="" readonly>Select Location</option>
+                                            @foreach($location as $loc)
+                                                @if($loc -> id == $properties -> idLocation)
+                                                    <option value="{{$loc -> id}}"
+                                                            selected>{{$loc -> locationName}}</option>
+                                                @else
+                                                    <option
+                                                        value={{$loc -> id}}>{{$loc -> locationName}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                        <label class="form-label" for="contact-location">Select Location</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-phone" type="password"
-                                               name="confirmPassword" value="{{$user->password}}">
-                                        <label class="form-label" for="contact-phone">Phone</label>
+                                        <input class="form-input" id="contact-address" value="{{$properties -> detailaddress}}" type="text" name="detailaddress" data-constraints="@Required">
+                                        <label class="form-label" for="contact-address">Detail Address</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" placeholder="Facebook" id="contact-phone" type="text"
-                                               name="facebook" value="{{$user->facebook}}">
-                                        <label class="form-label" for="contact-phone">Phone</label>
+                                        <textarea class="form-input" id="contact-detail" value="{{$properties -> detail}}" name="detail" ></textarea>
+                                        <label class="form-label" for="contact-detail">{{$properties -> detail}}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" placeholder="Date Of Birth" id="contact-phone"
-                                               type="date" name="dateOfBirth" value="{{$user->dateOfBirth}}">
-                                        <label class="form-label" for="contact-phone">Date Of Birth</label>
+                                        <input class="form-input" id="contact-bed" value="{{$properties -> bedroom}}" placeholder="Bedroom" type="number" name="bedroom">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" placeholder="Phone" id="contact-phone" type="text"
-                                               name="phone" value="{{$user->phone}}">
-                                        <label class="form-label" for="contact-phone">Phone</label>
+                                        <input class="form-input" id="contact-bath" value="{{$properties -> bathroom}}" placeholder="Bathroom" type="number" name="bathroom">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" placeholder="Address" id="contact-phone" type="text"
-                                               name="address" value="{{$user->address}}">
-                                        <label class="form-label" for="contact-phone">Phone</label>
+                                        <input class="form-input" id="contact-acreage" value="{{$properties -> acreage}}" placeholder="Acreage" type="number" name="acreage">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="contact-acreage" value="{{$properties -> price}}" placeholder="Price" type="number" name="price">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="contact-iduser" type="number" readonly value="{{$user_success -> id}}" name="idUser">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
                                         <label>Image</label>
-                                        <input name="image" type="file" class="form-control" value="{{$user->image}}">
+                                        <input name="image" type="file" value="{{$properties -> image}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-wrap">
-                                        <select name="gender" class=" form-control">
-                                            @if($user -> gender == 'F')
-                                                <option value="none" disabled="">Select Gender
-                                                </option>
-                                                <option value="M">Male</option>
-                                                <option value="F" selected="">Female</option>
-                                            @else
-                                                <option value="none" disabled="">Select Gender
-                                                </option>
-                                                <option value="M" selected="">Male</option>
-                                                <option value="F">Female</option>
-                                            @endif
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="button button-sm button-primary" type="submit">Change profile
-                                    </button>
+                                    <button class="button button-sm button-primary" type="submit">Post Property</button>
+                                    <a class="button button-sm button-primary" href="client/product/submitlist">Cancel</a>
                                 </div>
                             </div>
                         </form>

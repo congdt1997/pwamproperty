@@ -158,6 +158,16 @@ Route::group(['prefix' => 'client'], function(){
         Route::post('showproduct','ClientController@postSearchproduct');
 
         Route::post('showproduct2','ClientController@postSearchproductRange');
+
+        Route::get('submitlist','ClientController@getSubmitlist');
+
+        Route::get('submitproperty','ClientController@getSubmitproperty');
+        Route::post('submitproperty','ClientController@postSubmitproperty');
+
+        Route::get('editsubmit/{id}','ClientController@getEditsubmit');
+        Route::post('editsubmit/{id}','ClientController@postEditsubmit');
+
+        Route::get('deletesubmit/{id}','ClientController@getDeletesubmit');
     });
 
 });

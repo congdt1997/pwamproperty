@@ -207,4 +207,129 @@ class ClientController extends Controller
         return view('client.product.showproduct2',['typeProperty'=> $typeProperty, 'locationName'=> $locationName, 'typeproperties'=> $typeproperties, 'location'=> $location,'price_maxacreage' => $price_maxacreage, 'price_minacreage' => $price_minacreage, 'price_min' => $price_min, 'price_max' => $price_max, 'properties' => $properties]);
     }
 
+    public function getSubmitproperty(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $location = Location::all();
+        $typeofproperties = TypeOfProperty::all();
+        return view('client.product.submitproperty',['user'=> $user, 'typeofproperties'=> $typeofproperties, 'location' => $location]);
+    }
+    public function postSubmitproperty(Request $request){
+
+        $this -> validate($request, [
+            'introduction' => 'required|min:5',
+            'detail' => 'required|min:5',
+            'detailaddress' => 'required|min:8',
+            'bedroom' => 'required',
+            'bathroom' => 'required',
+            'acreage' => 'required',
+            'idLocation' => 'required',
+            'idType' => 'required'
+        ],[
+            'introduction.required' =>'You have to enter some introduction',
+            'introduction.min'=>'You must input more than 5 characters',
+            'detail.required' =>'You have to enter the detail of the property',
+            'detail.min'=>'You must input more than 5 characters',
+            'idLocation.required' =>'You have to select location',
+            'idType.required' =>'You have to select type of property',
+            'detailaddress.required' =>'You have to enter detail address',
+            'detailaddress.min' =>'You must input more than 10 characters',
+            'bedroom.required'=>'You must input the number of bedroom',
+            'bathroom.required' =>'You have to enter number of bathroom',
+            'acreage.required' =>'You have to enter the acreage'
+        ]);
+
+
+        $properties = new Property();
+
+        $properties -> idLocation = $request -> idLocation;
+        $properties -> idType = $request -> idType;
+        $properties -> idUser = $request -> idUser;
+        $properties -> introduction = $request -> introduction;
+        $properties -> detail = $request -> detail;
+        $properties -> detailaddress = $request -> detailaddress;
+        $properties -> bedroom = $request -> bedroom;
+        $properties -> bathroom = $request -> bathroom;
+        $properties -> acreage = $request -> acreage;
+        $properties -> price = $request -> price;
+        if($request -> hasFile('image'))
+        {
+            $file = $request -> file('image');
+            $image = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image);
+            $properties -> image = $image;
+        }else{
+            $properties -> image = "";
+        }
+        $properties -> save();
+        return redirect('client/product/submitproperty') -> with('notification','Add successfully');
+    }
+
+    public function getSubmitlist(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $location = Location::all();
+        $properties = Property::all();
+        $typeofproperties = TypeOfProperty::all();
+        return view('client.product.submitlist',['properties'=> $properties, 'user'=> $user, 'typeofproperties'=> $typeofproperties, 'location' => $location]);
+    }
+
+    public function getEditsubmit($id){
+        $id1 = Auth::user()->id;
+        $user = User::find($id1);
+        $properties = Property::find($id);
+        $location = Location::all();
+        $typeofproperties = TypeOfProperty::all();
+        return view('client.product.editsubmit',['properties'=> $properties, 'user'=> $user, 'typeofproperties'=> $typeofproperties, 'location' => $location]);
+    }
+    public function postEditsubmit(Request $request, $id){
+
+        $this -> validate($request, [
+            'introduction' => 'required|min:5',
+            'detail' => 'required|min:5',
+            'detailaddress' => 'required|min:8',
+            'bedroom' => 'required',
+            'bathroom' => 'required',
+            'acreage' => 'required',
+            'idLocation' => 'required',
+            'idType' => 'required'
+        ],[
+            'introduction.required' =>'You have to enter some introduction',
+            'introduction.min'=>'You must input more than 5 characters',
+            'detail.required' =>'You have to enter the detail of the property',
+            'detail.min'=>'You must input more than 5 characters',
+            'idLocation.required' =>'You have to select location',
+            'idType.required' =>'You have to select type of property',
+            'detailaddress.required' =>'You have to enter detail address',
+            'detailaddress.min' =>'You must input more than 10 characters',
+            'bedroom.required'=>'You must input the number of bedroom',
+            'bathroom.required' =>'You have to enter number of bathroom',
+            'acreage.required' =>'You have to enter the acreage'
+        ]);
+        $properties = Property::find($id);
+        $properties -> idLocation = $request -> idLocation;
+        $properties -> idType = $request -> idType;
+        $properties -> introduction = $request -> introduction;
+        $properties -> detail = $request -> detail;
+        $properties -> detailaddress = $request -> detailaddress;
+        $properties -> bedroom = $request -> bedroom;
+        $properties -> bathroom = $request -> bathroom;
+        $properties -> acreage = $request -> acreage;
+        $properties -> price = $request -> price;
+        if($request -> hasFile('image'))
+        {
+            $file = $request -> file('image');
+            $image = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image);
+            $properties -> image = $image;
+        }
+        $properties -> save();
+        return redirect('client/product/submitlist') -> with('notification','Edit successfully');
+    }
+
+    public function getDeletesubmit($id){
+        $properties = Property::find($id);
+        $properties -> delete();
+        return redirect('client/product/submitlist') -> with('notification','Delete successfully');
+    }
 }

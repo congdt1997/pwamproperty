@@ -170,8 +170,6 @@
                                 @if($us->id == $properties -> idUser)
                                     <div class="block-person-left"><img src="admin_asset/images/upload/user/{{$us -> image}}" alt="" width="650" height="756"/>
                                     </div>
-
-
                             <div class="block-person-body">
                                 <h3 class="block-person-title">{{$us -> fullname}}@if($us -> verified_email == 1)
                                         <i><img src="client_asset/images/about/check.png" style="height:20px; width:20px;"></i>
