@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Feature;
 use App\Feedback;
 use App\News;
+use App\Payment;
 use App\TypeOfProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,7 @@ use App\User;
 use App\Role;
 use App\Location;
 use App\Review;
+use App\TypeOfCode;
 use Monolog\Handler\IFTTTHandler;
 
 class ClientController extends Controller
@@ -442,5 +444,37 @@ class ClientController extends Controller
         }
         $feature -> save();
         return redirect('client/product/submitlist') -> with('notification','Edit successfully');
+    }
+
+    public function getMember(){
+        $id1 = Auth::user()->id;
+        $user = User::find($id1);
+        $typecode = TypeOfCode::all();
+        return view('client.makepayment.becomemember', ['user' => $user, 'typecode' => $typecode]);
+    }
+
+    public function postMember(Request $request){
+        $this->validate($request, [
+            'code' => 'required|min:10',
+            'idTypeofcode' => 'required'
+        ], [
+            'idTypeofcode.required' => 'You have to select type of code',
+            'code.required' => 'You have to enter Code',
+            'code.min' => 'You must input more than 5 characters',
+        ]);
+        $payment = new Payment();
+        $payment->idTypeofcode = $request->idTypeofcode;
+        $payment->code = $request->code;
+        $payment->idUser = $request->idUser;
+        $payment->save();
+        return redirect('client/makepayment/becomemember')->with('notification', 'Payment successfully');
+    }
+
+    public function getHistory(){
+        $id1 = Auth::user()->id;
+        $user = User::find($id1);
+        $payment = Payment::all();
+        $typecode = TypeOfCode::all();
+        return view('client.makepayment.historypayment', ['user' => $user, 'payment' => $payment, 'typecode' => $typecode]);
     }
 }

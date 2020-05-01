@@ -178,5 +178,10 @@ Route::group(['prefix' => 'client'], function(){
         Route::post('editfeature/{id}','ClientController@postEditfeature');
     });
 
+    Route::group(['prefix' => 'makepayment'], function(){
+        Route::get('becomemember','ClientController@getMember');
+        Route::post('becomemember','ClientController@postMember');
 
+        Route::get('historypayment','ClientController@getHistory');
+    });
 });

@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="button button-sm button-primary" type="submit">Post Property</button>
+                                    <button class="button button-sm button-primary" type="submit">Post Feature</button>
                                 </div>
                                 <div class="col-md-12">
                                     <a class="button button-sm button-primary" href="client/product/submitlist">Cancel</a>
