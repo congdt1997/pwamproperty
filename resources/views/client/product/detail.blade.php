@@ -112,10 +112,9 @@
                             </div>
                             <div class="collapse show" id="accordion2-collapse-1" role="tabpanel" aria-labelledby="accordion2-heading-1" data-parent="#accordion2">
                                 <div class="card-body">
-
                                         @foreach($feature as $feat)
-                                        <ul class="list-marked-2 layout-2">
                                             @if($feat -> id == $properties -> idFeature)
+                                            <ul class="list-marked-2 layout-2">
                                                 @if(($feat -> market != 0))
                                                     <li>Market</li>
                                                 @endif
@@ -131,10 +130,9 @@
                                                 @if(($feat -> theater != 0))
                                                     <li>Theater</li>
                                                 @endif
+                                            </ul>
                                             @endif
-                                        </ul>
                                          @endforeach
-
                                 </div>
                             </div>
                         </article>

@@ -50,7 +50,7 @@
                 </div>
                 <div class="layout-bordered-main">
                     <div class="layout-bordered-main-inner">
-                        <h2>Enter your property: {{$user -> count}} turn</h2>
+                        <h2>Your turn: {{$user -> count}}</h2>
                         <!-- RD Mailform-->
                         @if(count($errors) > 0)
                             <div class="alert alert-danger">

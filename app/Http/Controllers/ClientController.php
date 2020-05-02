@@ -16,6 +16,7 @@ use App\Role;
 use App\Location;
 use App\Review;
 use App\TypeOfCode;
+use Illuminate\Support\Facades\Mail;
 use Monolog\Handler\IFTTTHandler;
 
 class ClientController extends Controller
@@ -58,6 +59,14 @@ class ClientController extends Controller
         $feedback->phone = $request->phone;
         $feedback->message = $request->message;
         $feedback->save();
+
+        $receive = Auth::User() -> email;
+
+        Mail::send('client.email.feedback_email',[
+
+        ], function ($message) use ($receive){
+            $message ->to($receive, 'visitor') -> subject('Thank you for your feedback');
+        });
         return redirect('client/home/contact')->with('notification', 'Send Feedback successfully');
     }
 
