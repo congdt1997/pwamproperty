@@ -107,16 +107,59 @@ class ClientController extends Controller
         return redirect('client/home/home')->with('notification', 'Send request successfully');
     }
 
+    public function postContactemail(Request $request, $id){
+        $this->validate($request,
+            [
+                'name' => 'required',
+                'phone' => 'required|min:10',
+                'email' => 'required|email',
+                'message' => 'required|min:10'
+            ], [
+                'name.required' => 'You have to enter your name',
+                'email.required' => 'You have to enter the Email',
+                'phone.required' => 'You have to enter the Phone number',
+                'message.required' => 'You must input Message field!!!',
+                'message.min' => 'You must more than 3 characters!',
+                'phone.min' => 'You must input suitable phone number!'
+            ]);
+        $properties = Property::find($id);
+        $title = $properties -> introduction;
+        $proid = $properties -> id;
+        $idU = $properties -> idUser;
+        $user = User::find($idU);
+        $emailContact = $user -> email;
+        $receive = $request -> email;
+        $phone = $request -> phone;
+        $name = $request -> name;
+        $content = $request -> message;
+        Mail::send('client.email.consultation_email',[
+
+        ], function ($message) use ($receive){
+            $message ->to($receive, 'visitor') -> subject('Get a Free Consultation');
+        });
+
+        Mail::send('client.email.contact_email',[
+            'title' => $title,
+            'proid' => $proid,
+            'receive' => $receive,
+            'content' => $content,
+            'phone' => $phone,
+            'name' => $name,
+        ], function ($message) use ($receive,$emailContact){
+            $message ->from($receive, 'visitor');
+            $message ->to($emailContact, 'visitor') -> subject('Customer want to contact to you');
+        });
+        return redirect('client/product/detail/'.$id)->with('notification', 'Send request successfully');
+    }
+
     public function getHome()
     {
         $properties = Property::orderBy('created_at', 'desc')->take(6)->get();
         $count_client = 0;
-        $count_property = 0;
         $count_location = 0;
         $user = User::all();
-        foreach ($properties as $pro) {
-            $count_property++;
-        }
+        $propertiesall = Property::all();
+        count($propertiesall);
         foreach ($user as $us) {
             if ($us->idRole == 3) {
                 $count_client++;
@@ -129,7 +172,7 @@ class ClientController extends Controller
         $typeproperties = TypeOfProperty::all();
         $news = News::orderBy('created_at', 'desc')->take(3)->get();
 
-        return view('client.home.home', ['count_location' => $count_location, 'count_client' => $count_client, 'count_property' => $count_property, 'location' => $location, 'typeproperties' => $typeproperties, 'news' => $news, 'user' => $user, 'properties' => $properties]);
+        return view('client.home.home', ['count_location' => $count_location, 'count_client' => $count_client, 'propertiesall' => $propertiesall, 'location' => $location, 'typeproperties' => $typeproperties, 'news' => $news, 'user' => $user, 'properties' => $properties]);
     }
 
     public function getProfile()

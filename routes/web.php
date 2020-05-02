@@ -160,6 +160,7 @@ Route::group(['prefix' => 'client'], function(){
         Route::post('listproduct','ClientController@postSortProperty');
         Route::post('listproduct2','ClientController@postSortProperty2');
         Route::post('detail/{id}','ReviewController@postReview');
+        Route::post('contactemail/{id}','ClientController@postContactemail');
 
         Route::post('showproduct','ClientController@postSearchproduct');
 

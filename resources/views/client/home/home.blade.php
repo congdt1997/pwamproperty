@@ -216,7 +216,7 @@
                     <div class="col-6 col-md-3">
                         <!-- Box counter-->
                         <article class="box-counter">
-                            <div class="box-counter-main"><span>{{$count_property}}</span></div>
+                            <div class="box-counter-main"><span>{{count($propertiesall)}}</span></div>
                             <p class="box-counter-title">Properties on Map</p>
                         </article>
                     </div>
