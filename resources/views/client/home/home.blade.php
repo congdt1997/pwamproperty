@@ -72,42 +72,48 @@
                     <div class="owl-carousel" data-items="1" data-sm-items="2" data-lg-items="1" data-xl-items="2"
                          data-dots="false" data-nav="false" data-nav-custom="#owl-outer-nav" data-loop="true"
                          data-margin="30" data-autoplay="false" data-autoplay-speed="3500" data-stage-padding="0"
-                         data-mouse-drag="false"><a class="product-corporate context-dark" href="single-property.html"
-                                                    style="background-image: url(client_asset/images/real-estate-1-1-474x577.jpg);">
+                         data-mouse-drag="false"><a class="product-corporate context-dark" href="client/product/listproduct"
+                                                    style="background-image: url(client_asset/images/home/slide1.jpg);">
                             <div class="product-corporate-inner">
                                 <div class="product-corporate-caption">
-                                    <h3 class="product-corporate-title">401 Biscayne Boulevard, Miami</h3>
-                                    <h4 class="product-corporate-info">3 bedrooms, $240\day</h4>
+                                    <h3 class="product-corporate-title">Nice Place, Nice House</h3>
                                 </div>
                             </div>
-                        </a><a class="product-corporate context-dark" href="single-property.html"
-                               style="background-image: url(client_asset/images/real-estate-1-2-474x577.jpg);">
+                        </a><a class="product-corporate context-dark" href="client/home/about"
+                               style="background-image: url(client_asset/images/home/slide2.jpg);">
                             <div class="product-corporate-inner">
                                 <div class="product-corporate-caption">
-                                    <h3 class="product-corporate-title">3895 NW 107th Ave, Doral</h3>
-                                    <h4 class="product-corporate-info">2 bedrooms, $130\day</h4>
+                                    <h3 class="product-corporate-title">High Reputation</h3>
+                                </div>
+                            </div></a>
+                            @if(isset($user_success))
+                        <a class="product-corporate context-dark" href="client/makepayment/becomemember"
+                               style="background-image: url(client_asset/images/home/slide3.jpg);">
+                            <div class="product-corporate-inner">
+                                <div class="product-corporate-caption">
+                                    <h3 class="product-corporate-title">Payment Easy</h3>
                                 </div>
                             </div>
-                        </a><a class="product-corporate context-dark" href="single-property.html"
-                               style="background-image: url(client_asset/images/real-estate-1-3-474x577.jpg);">
+                            @else
+                                <a class="product-corporate context-dark" href="client/home/checklogin"
+                                   style="background-image: url(client_asset/images/home/slide3.jpg);">
+                                    <div class="product-corporate-inner">
+                                        <div class="product-corporate-caption">
+                                            <h3 class="product-corporate-title">Payment Easy</h3>
+                                        </div>
+                                    </div>
+                            @endif
+                        </a><a class="product-corporate context-dark" href="client/home/contact"
+                               style="background-image: url(client_asset/images/home/slide4.jpg);">
                             <div class="product-corporate-inner">
                                 <div class="product-corporate-caption">
-                                    <h3 class="product-corporate-title">3782 Broadway St, San Francisco</h3>
-                                    <h4 class="product-corporate-info">2 bedrooms, $290\day</h4>
-                                </div>
-                            </div>
-                        </a><a class="product-corporate context-dark" href="single-property.html"
-                               style="background-image: url(client_asset/images/real-estate-1-4-474x577.jpg);">
-                            <div class="product-corporate-inner">
-                                <div class="product-corporate-caption">
-                                    <h3 class="product-corporate-title">9021 Charter Oak Ln, San Diego</h3>
-                                    <h4 class="product-corporate-info">1 bedroom, $210\day</h4>
+                                    <h3 class="product-corporate-title">Professional Support Team</h3>
                                 </div>
                             </div>
                         </a></div>
                     <div class="box-2-footer">
                         <div class="box-2-footer-inner">
-                            <h3>Recent Properties</h3>
+                            <h3>Our Goal - Our Mission</h3>
                             <div class="owl-outer-nav" id="owl-outer-nav">
                                 <button class="owl-arrow owl-arrow-prev"><span
                                         class="icon fl-budicons-free-left161"></span><span>prev</span></button>
@@ -245,205 +251,8 @@
             </div>
         </div>
     </section>
-    <!-- Categories-->
-    <section class="section section-lg bg-default">
-        <div class="container">
-            <h2 class="heading-decoration-1"><span class="heading-inner">Categories</span></h2>
-            <div class="row row-30">
-                <div class="col-md-6 col-lg-7">
-                    <!-- Box Category-->
-                    <article class="box-category-outer"><a class="box-category context-dark" href="search-results.html">
-                            <div class="box-category-image-outer"
-                                 style="background-image: url(client_asset/images/categories-1-670x307.jpg);"></div>
-                            <div class="box-category-caption">
-                                <div class="box-category-caption-inner">
-                                    <h3 class="box-category-title">Studio Apartments</h3>
-                                    <p class="box-category-subtitle">8 Properties</p>
-                                </div>
-                            </div>
-                        </a></article>
-                </div>
-                <div class="col-md-6 col-lg-5">
-                    <!-- Box Category-->
-                    <article class="box-category-outer"><a class="box-category context-dark" href="search-results.html">
-                            <div class="box-category-image-outer"
-                                 style="background-image: url(client_asset/images/categories-2-469x307.jpg);"></div>
-                            <div class="box-category-caption">
-                                <div class="box-category-caption-inner">
-                                    <h3 class="box-category-title">Swimming Pool</h3>
-                                    <p class="box-category-subtitle">8 Properties</p>
-                                </div>
-                            </div>
-                        </a></article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <!-- Box Category-->
-                    <article class="box-category-outer"><a class="box-category context-dark" href="search-results.html">
-                            <div class="box-category-image-outer"
-                                 style="background-image: url(client_asset/images/categories-3-370x307.jpg);"></div>
-                            <div class="box-category-caption">
-                                <div class="box-category-caption-inner">
-                                    <h3 class="box-category-title">Luxury Houses</h3>
-                                    <p class="box-category-subtitle">8 Properties</p>
-                                </div>
-                            </div>
-                        </a></article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <!-- Box Category-->
-                    <article class="box-category-outer"><a class="box-category context-dark" href="search-results.html">
-                            <div class="box-category-image-outer"
-                                 style="background-image: url(client_asset/images/categories-4-370x307.jpg);"></div>
-                            <div class="box-category-caption">
-                                <div class="box-category-caption-inner">
-                                    <h3 class="box-category-title">Extra Bedroom</h3>
-                                    <p class="box-category-subtitle">8 Properties</p>
-                                </div>
-                            </div>
-                        </a></article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <!-- Box Category-->
-                    <article class="box-category-outer"><a class="box-category context-dark" href="search-results.html">
-                            <div class="box-category-image-outer"
-                                 style="background-image: url(client_asset/images/categories-5-370x307.jpg);"></div>
-                            <div class="box-category-caption">
-                                <div class="box-category-caption-inner">
-                                    <h3 class="box-category-title">Cozy Houses</h3>
-                                    <p class="box-category-subtitle">8 Properties</p>
-                                </div>
-                            </div>
-                        </a></article>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- What People Say-->
-    <section class="section section-lg bg-gray-12">
-        <div class="container">
-            <h2 class="heading-decoration-1"><span class="heading-inner">What People Say</span></h2>
-        </div>
-        <div class="container container-wide">
-            <!-- Owl Carousel-->
-            <div class="owl-carousel" data-items="1" data-md-items="2" data-lg-items="3" data-xl-items="4"
-                 data-dots="true" data-nav="false" data-stage-padding="0" data-loop="false" data-margin="30"
-                 data-mouse-drag="false">
-                <article class="quote-modern">
-                    <div class="quote-modern-inner">
-                        <time class="quote-modern-time" datetime="2020">March 15, 2020</time>
-                        <div class="quote-modern-main">
-                            <p>Your property managers have been active in their response to repairs and always patient
-                                with our frustrations. You have always found us wonderful tenants.</p>
-                        </div>
-                        <div class="quote-modern-meta-outer"><img class="quote-modern-avatar"
-                                                                  src="client_asset/images/testimonials-1-57x57.jpg"
-                                                                  alt="" width="57" height="57"/>
-                            <div class="quote-modern-meta">
-                                <h4 class="quote-modern-cite">Karen Sanders</h4>
-                                <p class="quote-modern-position">Pharmacist</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="quote-modern">
-                    <div class="quote-modern-inner">
-                        <time class="quote-modern-time" datetime="2020">March 15, 2020</time>
-                        <div class="quote-modern-main">
-                            <p>We recently rented an apartment through your site, and have been looked after by James
-                                Thompson. He provided us with utmost support on every property issue.</p>
-                        </div>
-                        <div class="quote-modern-meta-outer"><img class="quote-modern-avatar"
-                                                                  src="client_asset/images/testimonials-2-57x57.jpg"
-                                                                  alt="" width="57" height="57"/>
-                            <div class="quote-modern-meta">
-                                <h4 class="quote-modern-cite">Walter Williams</h4>
-                                <p class="quote-modern-position">Lifeguard</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="quote-modern">
-                    <div class="quote-modern-inner">
-                        <time class="quote-modern-time" datetime="2020">March 15, 2020</time>
-                        <div class="quote-modern-main">
-                            <p>I have always found your team to be extremely prompt and professional with all dealings I
-                                have had with them. You always keep me updated on the progress.</p>
-                        </div>
-                        <div class="quote-modern-meta-outer"><img class="quote-modern-avatar"
-                                                                  src="client_asset/images/testimonials-3-57x57.jpg"
-                                                                  alt="" width="57" height="57"/>
-                            <div class="quote-modern-meta">
-                                <h4 class="quote-modern-cite">Kate Anderson</h4>
-                                <p class="quote-modern-position">Decorator</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="quote-modern">
-                    <div class="quote-modern-inner">
-                        <time class="quote-modern-time" datetime="2020">March 15, 2020</time>
-                        <div class="quote-modern-main">
-                            <p>Your advice and support from our initial meeting through liaising with current tenants
-                                and a polished marketing program all contributed to a great sale process, thanks!</p>
-                        </div>
-                        <div class="quote-modern-meta-outer"><img class="quote-modern-avatar"
-                                                                  src="client_asset/images/testimonials-4-57x57.jpg"
-                                                                  alt="" width="57" height="57"/>
-                            <div class="quote-modern-meta">
-                                <h4 class="quote-modern-cite">Peter Smith</h4>
-                                <p class="quote-modern-position">Historian</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    <!-- Agents-->
-    <section class="section section-lg bg-default">
-        <div class="container">
-            <h2 class="heading-decoration-1"><span class="heading-inner">Our Agents</span></h2>
-            <div class="row row-30">
-                <div class="col-sm-6 col-lg-3">
-                    <!-- Block Agent--><a class="block-agent" href="#"><img
-                            src="client_asset/images/agents-01-540x460.jpg" alt="" width="540" height="460"/>
-                        <div class="block-agent-body">
-                            <h3 class="block-agent-title">Michael Rutter</h3>
-                            <p>Certified MyHome Broker</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <!-- Block Agent--><a class="block-agent" href="#"><img
-                            src="client_asset/images/agents-02-540x460.jpg" alt="" width="540" height="460"/>
-                        <div class="block-agent-body">
-                            <h3 class="block-agent-title">Sam Wilson</h3>
-                            <p>Residential MyHome Broker</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <!-- Block Agent--><a class="block-agent" href="#"><img
-                            src="client_asset/images/agents-03-540x460.jpg" alt="" width="540" height="460"/>
-                        <div class="block-agent-body">
-                            <h3 class="block-agent-title">Janet Richmond</h3>
-                            <p>MyHome Broker</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <!-- Block Agent--><a class="block-agent" href="#"><img
-                            src="client_asset/images/agents-04-540x460.jpg" alt="" width="540" height="460"/>
-                        <div class="block-agent-body">
-                            <h3 class="block-agent-title">Carl Parker</h3>
-                            <p>MyHome Broker</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- FAQ-->
     <section class="section section-lg bg-default">
         <div class="container">
             <!-- Box Info-->
@@ -452,8 +261,20 @@
                     <div class="box-info-main-inner">
                         <h2>Get a Free Consultation</h2>
                         <!-- RD Mailform-->
-                        <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact"
-                              method="post" action="client_asset/bat/rd-mailform.php">
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $er)
+                                    {{$er}}<br>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if(session('notification'))
+                            <div class="alert alert-success">
+                                {{session('notification')}}
+                            </div>
+                        @endif
+                        <form action="client/home/consultation" method="post" >
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="row row-20">
                                 <div class="col-12">
                                     <div class="form-wrap">

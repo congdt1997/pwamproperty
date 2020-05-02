@@ -26,6 +26,11 @@ class ClientController extends Controller
         return view('client.home.error');
     }
 
+    public function getChecklogin()
+    {
+        return view('client.home.checklogin');
+    }
+
     public function getAbout()
     {
         return view('client.home.about');
@@ -68,6 +73,38 @@ class ClientController extends Controller
             $message ->to($receive, 'visitor') -> subject('Thank you for your feedback');
         });
         return redirect('client/home/contact')->with('notification', 'Send Feedback successfully');
+    }
+
+    public function postConsultation(Request $request)
+    {
+        $this->validate($request,
+            [
+
+                'email' => 'required|email',
+                'message' => 'required|min:10'
+            ], [
+                'email.required' => 'You have to enter the Email',
+                'message.required' => 'You must input Message field!!!',
+                'message.min' => 'You must more than 3 characters!',
+            ]);
+
+        $receive = $request -> email;
+        $emailCustomer = $request -> email;
+        $content = $request -> message;
+        Mail::send('client.email.consultation_email',[
+
+        ], function ($message) use ($receive){
+            $message ->to($receive, 'visitor') -> subject('Get a Free Consultation');
+        });
+
+        Mail::send('client.email.customer_email',[
+            'emailCustomer' => $emailCustomer,
+            'content' => $content,
+        ], function ($message) use ($receive){
+            $message ->from($receive, 'visitor');
+            $message ->to('pwam.realestate@gmail.com', 'visitor') -> subject('Get a Free Consultation');
+        });
+        return redirect('client/home/home')->with('notification', 'Send request successfully');
     }
 
     public function getHome()
