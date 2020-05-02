@@ -50,7 +50,7 @@
                 </div>
                 <div class="layout-bordered-main">
                     <div class="layout-bordered-main-inner">
-                        <h2>Enter your property</h2>
+                        <h2>Edit your property</h2>
                         <!-- RD Mailform-->
                         @if(count($errors) > 0)
                             <div class="alert alert-danger">
@@ -151,6 +151,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <button class="button button-sm button-primary" type="submit">Post Property</button>
+                                </div>
+                                <div class="col-md-12">
                                     <a class="button button-sm button-primary" href="client/product/submitlist">Cancel</a>
                                 </div>
                             </div>

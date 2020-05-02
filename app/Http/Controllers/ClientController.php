@@ -281,6 +281,17 @@ class ClientController extends Controller
             $properties->image = "";
         }
         $properties->save();
+
+        $id1 = $properties -> idUser;
+        $user = User::find($id1);
+        $calcu = 1;
+        $calcu2 = $user -> count;
+        $result = $calcu2 - $calcu;
+        $user -> count = $result;
+        if($user -> count == 0){
+            $user -> status = 0;
+        }
+        $user -> save();
         return redirect('client/product/submitproperty')->with('notification', 'Add successfully');
     }
 

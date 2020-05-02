@@ -14,20 +14,12 @@
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/home">Home</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/product/listproduct">Properties</a>
-                    <!-- RD Navbar Dropdown-->
-                    <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="properties-grid.html">Properties Grid</a></li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-property.html">Single Property</a></li>
-                    </ul>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/about">About Us</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/news/listnews">Blog</a>
-                    <!-- RD Navbar Dropdown-->
-                    <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">Blog post</a></li>
-                    </ul>
                 </li>
+                @if(isset($user_success))
                 <li class="rd-nav-item"><a class="rd-nav-link">Pages</a>
                     <!-- RD Navbar Dropdown-->
                     <ul class="rd-menu rd-navbar-dropdown">
@@ -36,6 +28,7 @@
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/product/submitlist">Your properties</a></li>
                     </ul>
                 </li>
+                @endif
                 <li class="rd-nav-item"><a class="rd-nav-link" href="client/home/contact">Contact Us</a>
                 </li>
             </ul>
@@ -44,7 +37,7 @@
             @if($user_success->idRole == 1)
             <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="admin/dashboard/showdata">Go to Admin site</a>
             </div>
-                @elseif(($user_success->idRole == 3) && ($user_success->status == 0))
+                @elseif(($user_success->idRole == 3) && ($user_success->status == 0)&& ($user_success->count == 0))
              <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="client/makepayment/becomemember">Become membership</a>
              </div>
                 @elseif(($user_success->idRole == 3) && ($user_success->status == 1))

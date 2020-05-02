@@ -23,6 +23,7 @@ class PaymentController extends Controller
         $id1 = $payment -> idUser;
         $user = User::find($id1);
         $user -> status = 1;
+        $user -> count = 5;
         $user -> save();
         return redirect('admin/payment/list')->with('notification', 'Confirm success');
     }
@@ -35,6 +36,7 @@ class PaymentController extends Controller
         $id1 = $payment -> idUser;
         $user = User::find($id1);
         $user -> status = 0;
+        $user -> count = 0;
         $user -> save();
         return redirect('admin/payment/list')->with('notification', 'Cancel success');
     }

@@ -50,7 +50,7 @@
                 </div>
                 <div class="layout-bordered-main">
                     <div class="layout-bordered-main-inner">
-                        <h2>Enter your property</h2>
+                        <h2>Enter your property: {{$user -> count}} turn</h2>
                         <!-- RD Mailform-->
                         @if(count($errors) > 0)
                             <div class="alert alert-danger">
@@ -64,6 +64,7 @@
                                 {{session('notification')}}
                             </div>
                         @endif
+                        @if($user -> count > 0)
                         <form  action="client/product/submitproperty" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="row row-20">
@@ -139,10 +140,15 @@
                                 </div>
                                 <div class="col-md-12">
                                     <button class="button button-sm button-primary" type="submit">Post Property</button>
+                                </div>
+                                <div class="col-md-12">
                                     <a class="button button-sm button-primary" href="client/product/submitlist">Cancel</a>
                                 </div>
                             </div>
                         </form>
+                            @elseif($user -> count == 0)
+                        <div>Can not post</div>
+                            @endif
                     </div>
                 </div>
             </div>
