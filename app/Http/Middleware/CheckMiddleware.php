@@ -18,7 +18,7 @@ class CheckMiddleware
     {
         if (Auth::check()){
             $role = Auth::user();
-            if ($role->idRole == 1){
+            if (($role->idRole == 1)||($role->idRole == 2)){
                 return $next($request);
             }else{
                 return redirect('client/home/error');

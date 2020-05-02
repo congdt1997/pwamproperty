@@ -37,9 +37,15 @@
             @if($user_success->idRole == 1)
             <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="admin/dashboard/showdata">Go to Admin site</a>
             </div>
-                @elseif(($user_success->idRole == 3) && ($user_success->status == 0)&& ($user_success->count == 0))
+                @elseif($user_success->idRole == 2)
+                    <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="admin/dashboard/showdata">Management Payment</a>
+                    </div>
+                @elseif(($user_success->idRole == 3) && ($user_success->status == 0)&& ($user_success->count == null))
              <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="client/makepayment/becomemember">Become membership</a>
              </div>
+                @elseif(($user_success->idRole == 3) && ($user_success->status == 0)&& ($user_success->count == 0))
+                    <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="client/makepayment/becomemember">Become membership</a>
+                    </div>
                 @elseif(($user_success->idRole == 3) && ($user_success->status == 1))
                     <div class="rd-navbar-main-item"><a class="button button-sm button-primary" href="client/product/submitproperty">Submit property</a>
                     </div>

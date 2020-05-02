@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->integer('verified_email');
+            $table->integer('count');
             $table->char('gender','1');
             $table->unsignedInteger('idRole')->length(10);
             $table->char('status','1');
