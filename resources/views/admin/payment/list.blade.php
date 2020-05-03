@@ -46,6 +46,7 @@
                                     <th>Id</th>
                                     <th>Created at</th>
                                     <th>Type of code</th>
+                                    <th>Serial</th>
                                     <th>Code</th>
                                     <th>User</th>
                                     <th>Confirm</th>
@@ -58,7 +59,8 @@
                                         <td>{{$pay -> id}}</td>
                                         <td>{{$pay -> created_at}}</td>
                                         <td>{{$pay -> idTypeofcode}}</td>
-                                        <td>*100*{{$pay -> code}}#</td>
+                                        <td>{{$pay -> serial}}</td>
+                                        <td>{{$pay -> code}}</td>
                                         <td><a href="admin/user/edit/{{$pay->idUser}}">{{$pay -> idUser}}</a></td>
                                         @if($pay -> comment == null)
                                             <td>

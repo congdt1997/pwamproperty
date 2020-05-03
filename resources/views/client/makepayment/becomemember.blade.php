@@ -79,10 +79,17 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
+                                        <input class="form-input" id="contact-intro" type="text" name="serial" data-constraints="@Required">
+                                        <label class="form-label" for="contact-intro">Serial</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
                                         <input class="form-input" id="contact-intro" type="text" name="code" data-constraints="@Required">
                                         <label class="form-label" for="contact-intro">Code</label>
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="form-wrap">
                                         <input class="form-input" id="contact-address" type="text" readonly name="idUser" value="{{$user -> id}}">

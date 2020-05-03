@@ -26,6 +26,7 @@
                 <tr>
                     <th>ID Payment</th>
                     <th>Card</th>
+                    <th>Serial</th>
                     <th>Code</th>
                     <th>Time</th>
                     <th>Status</th>
@@ -39,6 +40,7 @@
 
                             <td>{{$pay -> id}}</td>
                             <td>{{$pay -> idTypeofcode}}</td>
+                            <td>{{$pay -> serial}}</td>
                             <td>{{$pay -> code}}</td>
                             <td>{{$pay -> created_at}}</td>
                             @if($pay -> comment == 'ok')

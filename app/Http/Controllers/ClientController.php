@@ -556,14 +556,19 @@ class ClientController extends Controller
     public function postMember(Request $request){
         $this->validate($request, [
             'code' => 'required|min:10',
-            'idTypeofcode' => 'required'
+            'serial' => 'required|min:10',
+            'idTypeofcode' => 'required|max:2'
         ], [
             'idTypeofcode.required' => 'You have to select type of code',
+            'idTypeofcode.max' => 'You have to select the type of code',
             'code.required' => 'You have to enter Code',
-            'code.min' => 'You must input more than 5 characters',
+            'code.min' => 'You must input more than 10 characters',
+            'serial.required' => 'You have to enter Serial',
+            'serial.min' => 'Serial must be more than 10 characters',
         ]);
         $payment = new Payment();
         $payment->idTypeofcode = $request->idTypeofcode;
+        $payment->serial = $request->serial;
         $payment->code = $request->code;
         $payment->idUser = $request->idUser;
         $payment->save();

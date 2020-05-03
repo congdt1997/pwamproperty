@@ -174,29 +174,6 @@
                     <div class="pdl-xl-40">
                         <div class="row row-60">
                             <div class="col-md-6 col-lg-12">
-                                <!-- RD Search-->
-                                <form class="form-lg rd-search rd-search-classic">
-                                    <div class="form-wrap">
-                                        <label class="form-label" for="rd-search-form-input">Search the blog...</label>
-                                        <input class="form-input" id="rd-search-form-input" type="text" name="s" autocomplete="off">
-                                    </div>
-                                    <button class="rd-search-submit" type="submit"> </button>
-                                </form>
-                            </div>
-                            <div class="col-md-6 col-lg-12">
-                                <div class="block-info-2">
-                                    <div class="block-info-2-title">
-                                        <h3>Categories</h3>
-                                    </div>
-                                    <ul class="list-quadrate">
-                                        <li><a href="#"><span class="list-quadrate-text">Comfort</span><span class="list-quadrate-count">12</span></a></li>
-                                        <li><a href="#"><span class="list-quadrate-text">Luxury</span><span class="list-quadrate-count">10</span></a></li>
-                                        <li><a href="#"><span class="list-quadrate-text">Market Updates</span><span class="list-quadrate-count">11</span></a></li>
-                                        <li><a href="#"><span class="list-quadrate-text">Sales</span><span class="list-quadrate-count">14</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-12">
                                 <div class="block-info-2">
                                     <div class="block-info-2-title">
                                         <h3>Latest Listings</h3>
@@ -219,101 +196,6 @@
                                             <div class="post-minimal-1-title"><span>182 3rd St, Seattle</span></div>
                                             <div class="post-minimal-1-text"><span>$2520\mo</span></div>
                                         </div></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-12">
-                                <div class="block-info-2">
-                                    <div class="block-info-2-title">
-                                        <h6>Find Your Property</h6>
-                                    </div>
-                                    <form class="rd-mailform form-select" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                                        <div class="form-wrap form-wrap-validation">
-                                            <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Choose Location" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                <option label="placeholder"></option>
-                                                <option value="2">Alaska</option>
-                                                <option value="3">Arizona</option>
-                                                <option value="4">Arkansas</option>
-                                                <option value="5">California</option>
-                                                <option value="6">Colorado</option>
-                                                <option value="7">Connecticut</option>
-                                                <option value="8">Delaware</option>
-                                                <option value="9">Florida</option>
-                                            </select><span class="select-arrow"></span>
-                                        </div>
-                                        <div class="form-wrap form-wrap-validation">
-                                            <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Property Status" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                <option label="placeholder"></option>
-                                                <option value="2">Low</option>
-                                                <option value="3">Middle</option>
-                                                <option value="4">Primary</option>
-                                            </select><span class="select-arrow"></span>
-                                        </div>
-                                        <div class="form-wrap form-wrap-validation">
-                                            <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Property Type" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                <option label="placeholder"></option>
-                                                <option value="2">Low</option>
-                                                <option value="3">Middle</option>
-                                                <option value="4">Primary</option>
-                                            </select><span class="select-arrow"></span>
-                                        </div>
-                                        <div class="form-wrap-group">
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Min Price" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">100 $</option>
-                                                    <option value="3">200 $</option>
-                                                    <option value="4">300 $</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Max Price" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">1000 $</option>
-                                                    <option value="3">2000 $</option>
-                                                    <option value="4">3000 $</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-wrap-group">
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Min Area" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">100 Sq Ft</option>
-                                                    <option value="3">200 Sq Ft</option>
-                                                    <option value="4">300 Sq Ft</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Max Area" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">1000 Sq Ft</option>
-                                                    <option value="3">2000 Sq Ft</option>
-                                                    <option value="4">3000 Sq Ft</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-wrap-group">
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Min Resint" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">100</option>
-                                                    <option value="3">200</option>
-                                                    <option value="4">300</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                            <div class="form-wrap form-wrap-validation">
-                                                <select class="form-input select-filter" data-class="select-classic" data-style="modern" data-placeholder="Max Resint" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                                    <option label="placeholder"></option>
-                                                    <option value="2">1000</option>
-                                                    <option value="3">2000</option>
-                                                    <option value="4">3000</option>
-                                                </select><span class="select-arrow"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-button">
-                                            <button class="button button-block button-primary" type="submit">Search</button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
