@@ -227,7 +227,6 @@ class ClientController extends Controller
     {
         $count = 0;
         $properties = Property::find($id);
-
         $allProperties = Property::all();
         foreach($allProperties as $allpro){
             if ($allpro -> idUser == $properties -> idUser)
@@ -235,7 +234,7 @@ class ClientController extends Controller
                 $idAll = $allpro -> idUser;
             }
         }
-        $allProperties2 = Property::where('idUser', 'like', "%$idAll%")->orderBy('created_at', 'desc')->take(2)->get();
+        $allProperties2 = Property::where('idUser', 'like', "%$idAll%")->orderBy('created_at', 'desc')->take(3)->get();
         $user = User::all();
         $location = Location::all();
         $feature = Feature::all();

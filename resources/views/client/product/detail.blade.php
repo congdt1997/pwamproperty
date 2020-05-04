@@ -332,7 +332,7 @@
                         <h3>Similar Properties</h3>
                         <div class="row row-50 mt-10">
                             @foreach($allProperties2 as $allpro)
-                                @if($allpro -> idUser == $properties -> idUser)
+                                @if(($allpro -> idUser == $properties -> idUser)&&($allpro -> id != $properties -> id))
                                     <div class="col-md-6 col-lg-12 col-xl-6">
                                         <!-- Product Classic-->
                                         <article class="product-classic">
