@@ -125,57 +125,22 @@
                         </div>
                         <div class="col-md-6 col-lg-12">
                             <div class="block-info bg-default">
-                                <h3>Mortgage Calculator</h3>
-                                <form class="rd-mailform form-select" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                                <h3>Price Calculator</h3><br>
+
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-1-name" type="text" name="name" data-constraints="@Required">
-                                        <label class="form-label" for="contact-1-name">Home Value</label>
+                                        <input class="form-input" id="contact-1-price" placeholder="Home Price" type="number" name="price" data-constraints="@Required">
                                     </div>
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" data-style="modern" data-placeholder="Loan Amount" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">50000</option>
-                                            <option value="3">100000</option>
-                                            <option value="4">200000</option>
-                                            <option value="5">500000</option>
-                                            <option value="6">1000000</option>
-                                            <option value="7">1500000</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" data-style="modern" data-placeholder="Term (Years)" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">10</option>
-                                            <option value="3">15</option>
-                                            <option value="4">20</option>
-                                            <option value="5">25</option>
-                                            <option value="6">30</option>
-                                            <option value="7">40</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-wrap form-wrap-validation">
-                                        <select class="form-input select-filter" data-style="modern" data-placeholder="Interest Rate in %" data-minimum-results-for-search="Infinity" data-constraints="@Required">
-                                            <option label="placeholder"></option>
-                                            <option value="2">0.1%</option>
-                                            <option value="3">0.3%</option>
-                                            <option value="4">0.5%</option>
-                                            <option value="5">0.7%</option>
-                                            <option value="6">0.9%</option>
-                                            <option value="7">1%</option>
-                                        </select>
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="contact-1-month" placeholder="Month" type="number" name="month" data-constraints="@Required">
                                     </div>
                                     <ul class="form-wrap-list">
-                                        <li>Financed Amount: <span>0</span>
+                                        <li>Cost: <span id="answer"> </span>
                                         </li>
-                                        <li>Mortgage Payments: <span>0</span>
-                                        </li>
-                                        <li>Annual Cost of Loan: <span>0</span>
-                                        </li>
-                                    </ul>
+                                    </ul><br>
                                     <div class="form-button">
-                                        <button class="button button-block button-primary" type="submit">Calculate</button>
+                                        <button class="button button-block button-primary" onclick="multiple()" >Calculate</button>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -183,4 +148,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function multiple(){
+            var value1 = document.getElementById("contact-1-price").value;
+            var value2 = document.getElementById("contact-1-month").value;
+
+            var result = parseFloat(value1) * parseFloat(value2);
+
+            if(!isNaN(result)){
+                document.getElementById("answer").innerHTML=result + "$";
+            }
+        }
+    </script>
 @endsection

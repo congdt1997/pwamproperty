@@ -241,7 +241,7 @@ class ClientController extends Controller
         return view('client.product.detail', ['allProperties' => $allProperties, 'feature' => $feature, 'typeproperties' => $typeproperties, 'count' => $count, 'review' => $review, 'location' => $location, 'user' => $user, 'properties' => $properties]);
     }
 
-    public function getListproduct()
+    public function getListproduct(Request $request)
     {
         $properties = Property::orderBy('created_at', 'desc')->paginate(4);
         $location = Location::all();
