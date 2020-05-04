@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">{{$payment}}</span></div>
+                                        <div class="stat-text"><span class="count">{{$countpay}}</span></div>
                                         <div class="stat-heading">Transaction</div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                 <div class="card-body">
                                     <div class="progress-box progress-1">
                                         <h4 class="por-title">Visits</h4>
-                                        <div class="por-txt">{{$payment}} Location</div>
+                                        <div class="por-txt">{{$countpay}} Location</div>
                                         <div class="progress mb-2" style="height: 5px;">
                                             <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>

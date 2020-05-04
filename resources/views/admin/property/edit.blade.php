@@ -110,14 +110,33 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Acreage</label></div>
                                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="acreage" value="{{$properties->acreage}}" placeholder="Text" class="form-control"></div>
                                 </div>
-
                                 <div class="row form-group">
-                                    <label>Image</label>
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Price</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="price" value="{{$properties->price}}" placeholder="Text" class="form-control"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <label>Image 1</label>
                                     <p><img width="400px"
                                             src="admin_asset/images/upload/properties/{{$properties->image}}"
                                             alt=""/></p>
                                     <input name="image" type="file" class="form-control"
                                            value="{{$properties->image}}">
+                                </div>
+                                <div class="row form-group">
+                                    <label>Image 2</label>
+                                    <p><img width="400px"
+                                            src="admin_asset/images/upload/properties/{{$properties->image2}}"
+                                            alt=""/></p>
+                                    <input name="image2" type="file" class="form-control"
+                                           value="{{$properties->image2}}">
+                                </div>
+                                <div class="row form-group">
+                                    <label>Image 3</label>
+                                    <p><img width="400px"
+                                            src="admin_asset/images/upload/properties/{{$properties->image3}}"
+                                            alt=""/></p>
+                                    <input name="image3" type="file" class="form-control"
+                                           value="{{$properties->image3}}">
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary">Submit</button>

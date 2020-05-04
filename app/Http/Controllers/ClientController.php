@@ -379,6 +379,22 @@ class ClientController extends Controller
         } else {
             $properties->image = "";
         }
+        if ($request->hasFile('image2')) {
+            $file = $request->file('image2');
+            $image2 = $file->getClientOriginalName();
+            $file->move('admin_asset/images/upload/properties', $image2);
+            $properties->image2 = $image2;
+        } else {
+            $properties->image2 = "";
+        }
+        if ($request->hasFile('image3')) {
+            $file = $request->file('image3');
+            $image3 = $file->getClientOriginalName();
+            $file->move('admin_asset/images/upload/properties', $image3);
+            $properties->image3 = $image3;
+        } else {
+            $properties->image3 = "";
+        }
         $properties->save();
 
         $id1 = $properties -> idUser;
@@ -454,6 +470,18 @@ class ClientController extends Controller
             $image = $file->getClientOriginalName();
             $file->move('admin_asset/images/upload/properties', $image);
             $properties->image = $image;
+        }
+        if ($request->hasFile('image2')) {
+            $file = $request->file('image2');
+            $image2 = $file->getClientOriginalName();
+            $file->move('admin_asset/images/upload/properties', $image2);
+            $properties->image2 = $image2;
+        }
+        if ($request->hasFile('image3')) {
+            $file = $request->file('image3');
+            $image3 = $file->getClientOriginalName();
+            $file->move('admin_asset/images/upload/properties', $image3);
+            $properties->image3 = $image3;
         }
         $properties->save();
         return redirect('client/product/submitlist')->with('notification', 'Edit successfully');

@@ -51,7 +51,7 @@
                                     <!-- Product Classic-->
                                     <article class="product-classic">
                                         <div class="product-classic-media">
-                                            <div class="owl-carousel" data-items="1" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="0" data-mouse-drag="false"><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/>
+                                            <div class="owl-carousel" data-items="1" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="0" data-mouse-drag="false"><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image2}}" alt="" width="480" height="287"/><img src="admin_asset/images/upload/properties/{{$pro->image3}}" alt="" width="480" height="287"/>
                                             </div>
                                             <div class="product-classic-price"><span>{{$pro -> price}}</span></div>
                                         </div>

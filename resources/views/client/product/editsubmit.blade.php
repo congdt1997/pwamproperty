@@ -145,8 +145,29 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <label>Image</label>
+                                        <label>Image 1</label>
+                                        <p><img width="400px"
+                                                src="admin_asset/images/upload/properties/{{$properties->image}}"
+                                                alt=""/></p>
                                         <input name="image" type="file" value="{{$properties -> image}}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <label>Image 2</label>
+                                        <p><img width="400px"
+                                                src="admin_asset/images/upload/properties/{{$properties->image2}}"
+                                                alt=""/></p>
+                                        <input name="image2" type="file" value="{{$properties -> image2}}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <label>Image 3</label>
+                                        <p><img width="400px"
+                                                src="admin_asset/images/upload/properties/{{$properties->image3}}"
+                                                alt=""/></p>
+                                        <input name="image3" type="file" value="{{$properties -> image3}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

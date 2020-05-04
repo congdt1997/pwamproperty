@@ -8,6 +8,7 @@ use App\TypeOfProperty;
 use App\Review;
 use App\User;
 use App\Property;
+use Illuminate\Support\Facades\Auth;
 
 
 class PropertyController extends Controller
@@ -35,6 +36,7 @@ class PropertyController extends Controller
             'bedroom' => 'required',
             'bathroom' => 'required',
             'acreage' => 'required',
+            'price' => 'required',
             'idLocation' => 'required',
             'idType' => 'required'
         ],[
@@ -48,7 +50,8 @@ class PropertyController extends Controller
             'detailaddress.min' =>'You must input more than 10 characters',
             'bedroom.required'=>'You must input the number of bedroom',
             'bathroom.required' =>'You have to enter number of bathroom',
-            'acreage.required' =>'You have to enter the acreage'
+            'acreage.required' =>'You have to enter the acreage',
+            'price.required' =>'You have to enter the price'
         ]);
 
 
@@ -62,6 +65,8 @@ class PropertyController extends Controller
         $properties -> bedroom = $request -> bedroom;
         $properties -> bathroom = $request -> bathroom;
         $properties -> acreage = $request -> acreage;
+        $properties -> price = $request -> price;
+        $properties -> idUser = Auth::user()->id;
         if($request -> hasFile('image'))
         {
             $file = $request -> file('image');
@@ -70,6 +75,24 @@ class PropertyController extends Controller
             $properties -> image = $image;
         }else{
             $properties -> image = "";
+        }
+        if($request -> hasFile('image2'))
+        {
+            $file = $request -> file('image2');
+            $image2 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image2);
+            $properties -> image2 = $image2;
+        }else{
+            $properties -> image2 = "";
+        }
+        if($request -> hasFile('image3'))
+        {
+            $file = $request -> file('image3');
+            $image3 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image3);
+            $properties -> image3 = $image3;
+        }else{
+            $properties -> image3 = "";
         }
         $properties -> save();
         return redirect('admin/property/add') -> with('notification','Add successfully');
@@ -89,6 +112,7 @@ class PropertyController extends Controller
             'bedroom' => 'required',
             'bathroom' => 'required',
             'acreage' => 'required',
+            'price' => 'required',
             'idLocation' => 'required',
             'idType' => 'required'
         ],[
@@ -102,7 +126,8 @@ class PropertyController extends Controller
             'detailaddress.min' =>'You must input more than 10 characters',
             'bedroom.required'=>'You must input the number of bedroom',
             'bathroom.required' =>'You have to enter number of bathroom',
-            'acreage.required' =>'You have to enter the acreage'
+            'acreage.required' =>'You have to enter the acreage',
+            'price.required' =>'You have to enter the acreage'
         ]);
 
         $properties -> idLocation = $request -> idLocation;
@@ -113,12 +138,27 @@ class PropertyController extends Controller
         $properties -> bedroom = $request -> bedroom;
         $properties -> bathroom = $request -> bathroom;
         $properties -> acreage = $request -> acreage;
+        $properties -> price = $request -> price;
         if($request -> hasFile('image'))
         {
             $file = $request -> file('image');
             $image = $file ->getClientOriginalName();
             $file -> move('admin_asset/images/upload/properties', $image);
             $properties -> image = $image;
+        }
+        if($request -> hasFile('image2'))
+        {
+            $file = $request -> file('image2');
+            $image2 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image2);
+            $properties -> image2 = $image2;
+        }
+        if($request -> hasFile('image3'))
+        {
+            $file = $request -> file('image3');
+            $image3 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/properties', $image3);
+            $properties -> image3 = $image3;
         }
         $properties -> save();
         return redirect('admin/property/list') -> with('notification','Update successfully');

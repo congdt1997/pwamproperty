@@ -27,6 +27,8 @@ class CreatePropertiesTable extends Migration
             $table->decimal('price', 18,2);
             $table->string('introduction');
             $table->string('image');
+            $table->string('image2');
+            $table->string('image3');
             $table->string('detail');
             $table->timestamps();
         });

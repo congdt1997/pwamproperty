@@ -11,7 +11,13 @@ class DashboardController extends Controller
     //
     public function getShowdata()
     {
-        $payment = Payment::count();
+        $countpay = 0;
+        $payment = Payment::all();
+        foreach($payment as $pay){
+            if ($pay -> comment == 'ok'){
+                $countpay++;
+            }
+        }
         $properties = Property::count();
         $count_client = 0;
         $user = User::all();
@@ -21,8 +27,8 @@ class DashboardController extends Controller
             }
         }
 
-        $calcu = ($payment * 20000)/23000;
+        $calcu = ($countpay * 20000)/23000;
         $pricecalcu = number_format($calcu, 2);
-        return view('admin.dashboard.showdata', ['count_client'=>$count_client, 'properties'=>$properties, 'pricecalcu'=>$pricecalcu, 'payment'=>$payment, 'calcu'=>$calcu]);
+        return view('admin.dashboard.showdata', ['count_client'=>$count_client, 'properties'=>$properties, 'pricecalcu'=>$pricecalcu, 'countpay'=>$countpay, 'calcu'=>$calcu]);
     }
 }

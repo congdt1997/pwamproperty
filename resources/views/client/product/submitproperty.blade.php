@@ -127,15 +127,27 @@
                                         <input class="form-input" id="contact-acreage" placeholder="Price" type="number" name="price">
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div  class="col-md-12">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="contact-iduser" type="number" readonly value="{{$user_success -> id}}" name="idUser">
+                                        <input class="form-input" type="hidden" id="contact-iduser" type="number" readonly value="{{$user_success -> id}}" name="idUser">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <label>Image</label>
+                                        <label>Image 1</label>
                                         <input name="image" type="file" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <label>Image 2</label>
+                                        <input name="image2" type="file" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <label>Image 3</label>
+                                        <input name="image3" type="file" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

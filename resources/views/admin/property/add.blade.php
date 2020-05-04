@@ -91,12 +91,23 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Acreage</label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="acreage" placeholder="Text" class="form-control"></div>
+                                    <div class="col-12 col-md-9"><input type="number" id="text-input" name="acreage" placeholder="Text" class="form-control"></div>
                                 </div>
-
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Price($)</label></div>
+                                    <div class="col-12 col-md-9"><input type="number" id="text-input" name="price" placeholder="Text" class="form-control"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Image 1</label></div>
                                     <div class="col-12 col-md-9"><input type="file" id="file-input" name="image" class="form-control-file"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Image 2</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="image2" class="form-control-file"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Image 3</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="image3" class="form-control-file"></div>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary">Submit</button>

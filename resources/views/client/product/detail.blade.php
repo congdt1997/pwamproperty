@@ -23,13 +23,10 @@
                             <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image}}"
                                                    alt="" width="763" height="443"/>
                             </div>
-                            <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image}}"
+                            <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image2}}"
                                                    alt="" width="763" height="443"/>
                             </div>
-                            <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image}}"
-                                                   alt="" width="763" height="443"/>
-                            </div>
-                            <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image}}"
+                            <div class="item"><img src="admin_asset/images/upload/properties/{{$properties->image3}}"
                                                    alt="" width="763" height="443"/>
                             </div>
                         </div>
@@ -42,7 +39,11 @@
                             </div>
                             <div>
                                 <div class="slick-slide-inner"
-                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image}});"></div>
+                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image2}});"></div>
+                            </div>
+                            <div>
+                                <div class="slick-slide-inner"
+                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image3}});"></div>
                             </div>
                             <div>
                                 <div class="slick-slide-inner"
@@ -50,19 +51,11 @@
                             </div>
                             <div>
                                 <div class="slick-slide-inner"
-                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image}});"></div>
+                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image2}});"></div>
                             </div>
                             <div>
                                 <div class="slick-slide-inner"
-                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image}});"></div>
-                            </div>
-                            <div>
-                                <div class="slick-slide-inner"
-                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image}});"></div>
-                            </div>
-                            <div>
-                                <div class="slick-slide-inner"
-                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image}});"></div>
+                                     style="background-image: url(admin_asset/images/upload/properties/{{$properties->image3}});"></div>
                             </div>
                         </div>
                     </div>
@@ -342,11 +335,9 @@
                                                      data-mouse-drag="false"><img
                                                         src="admin_asset/images/upload/properties/{{$allpro->image}}"
                                                         alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image2}}"
                                                         alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
-                                                        alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image3}}"
                                                         alt="" width="480" height="287"/>
                                                 </div>
                                                 <div class="product-classic-price">
