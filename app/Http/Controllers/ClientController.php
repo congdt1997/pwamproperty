@@ -227,7 +227,15 @@ class ClientController extends Controller
     {
         $count = 0;
         $properties = Property::find($id);
-        $allProperties = Property::orderBy('created_at', 'desc')->take(2)->get();
+
+        $allProperties = Property::all();
+        foreach($allProperties as $allpro){
+            if ($allpro -> idUser == $properties -> idUser)
+            {
+                $idAll = $allpro -> idUser;
+            }
+        }
+        $allProperties2 = Property::where('idUser', 'like', "%$idAll%")->orderBy('created_at', 'desc')->take(2)->get();
         $user = User::all();
         $location = Location::all();
         $feature = Feature::all();
@@ -238,7 +246,7 @@ class ClientController extends Controller
                 $count++;
             }
         }
-        return view('client.product.detail', ['allProperties' => $allProperties, 'feature' => $feature, 'typeproperties' => $typeproperties, 'count' => $count, 'review' => $review, 'location' => $location, 'user' => $user, 'properties' => $properties]);
+        return view('client.product.detail', ['allProperties2' => $allProperties2, 'feature' => $feature, 'typeproperties' => $typeproperties, 'count' => $count, 'review' => $review, 'location' => $location, 'user' => $user, 'properties' => $properties]);
     }
 
     public function getListproduct(Request $request)
