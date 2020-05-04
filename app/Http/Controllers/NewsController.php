@@ -22,12 +22,15 @@ class NewsController extends Controller
         $this -> validate($request,
             [
                 'title' => 'required|min:3',
-                'content1' => 'required|min:3'
+                'content1' => 'required|min:3',
+                'content2' => 'required|min:3'
             ],[
                 'title.required'=>'You must input this field!!!',
                 'title.min'=>'You must more than 3 characters!',
                 'content1.required'=>'You must input this field!!!',
                 'content1.min'=>'You must more than 3 characters!',
+                'content2.required'=>'You must input this field!!!',
+                'content2.min'=>'You must more than 3 characters!',
             ]);
         $news = new News();
         $news -> title = $request -> title;
@@ -41,6 +44,16 @@ class NewsController extends Controller
             $news -> image = "";
         }
         $news -> content = $request -> content1;
+        if($request -> hasFile('image2'))
+        {
+            $file = $request -> file('image2');
+            $image2 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/news', $image2);
+            $news -> image2 = $image2;
+        }else{
+            $news -> image2 = "";
+        }
+        $news -> content2 = $request -> content2;
         $news -> save();
         return redirect('admin/news/add')->with('notification', 'Add successfully');
     }
@@ -55,12 +68,15 @@ class NewsController extends Controller
         $this -> validate($request,
             [
                 'title' => 'required|min:3',
-                'content1' => 'required|min:3'
+                'content1' => 'required|min:3',
+                'content2' => 'required|min:3'
             ],[
                 'title.required'=>'You must input title field!!!',
                 'title.min'=>'You must more than 3 characters!',
                 'content1.required'=>'You must input content field!!!',
                 'content1.min'=>'You must more than 3 characters!',
+                'content2.required'=>'You must input content field!!!',
+                'content2.min'=>'You must more than 3 characters!',
             ]);
         $news -> title = $request -> title;
         if($request -> hasFile('image'))
@@ -71,6 +87,14 @@ class NewsController extends Controller
             $news -> image = $image;
         }
         $news -> content = $request -> content1;
+        if($request -> hasFile('image2'))
+        {
+            $file = $request -> file('image2');
+            $image2 = $file ->getClientOriginalName();
+            $file -> move('admin_asset/images/upload/news', $image2);
+            $news -> image2 = $image2;
+        }
+        $news -> content2 = $request -> content2;
         $news -> save();
         return redirect('admin/news/list')->with('notification', 'Add successfully');
     }

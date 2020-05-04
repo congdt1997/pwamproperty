@@ -29,13 +29,13 @@
                             <div class="row row-20">
                                 <div class="col-md-5">
                                     <div class="blog-post-solo-part-aside"><img
-                                            src="admin_asset/images/upload/news/{{$news->image}}" alt="" width="533"
+                                            src="admin_asset/images/upload/news/{{$news->image2}}" alt="" width="533"
                                             height="389"/>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="blog-post-solo-part-main">
-                                        <p>{{$news->content}}</p>
+                                        <p>{{$news->content2}}</p>
                                     </div>
                                 </div>
                             </div>

@@ -52,12 +52,20 @@
                                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="Text" class="form-control"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image 1</label>
                                     <input name="image" type="file" class="form-control">
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Content</label></div>
                                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="content1" placeholder="Text" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image 2</label>
+                                    <input name="image2" type="file" class="form-control">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Content 2</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="content2" placeholder="Text" class="form-control"></div>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary">Submit</button>

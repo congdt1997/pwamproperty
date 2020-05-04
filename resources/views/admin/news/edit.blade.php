@@ -44,7 +44,7 @@
                             <form action="admin/news/edit/{{$news->id}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Location name</label></div>
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title</label></div>
                                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" value="{{$news->title}}" placeholder="Text" class="form-control"></div>
                                 </div>
                                 <div class="form-group">
@@ -56,8 +56,20 @@
                                            value="{{$news->image}}">
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Location name</label></div>
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Content 1</label></div>
                                     <div class="col-12 col-md-9"><input type="text" id="text-input" name="content1" value="{{$news->content}}" placeholder="Text" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image 2</label>
+                                    <p><img width="400px"
+                                            src="admin_asset/images/upload/news/{{$news->image2}}"
+                                            alt=""/></p>
+                                    <input name="image2" type="file" class="form-control"
+                                           value="{{$news->image2}}">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Content 2</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="content2" value="{{$news->content2}}" placeholder="Text" class="form-control"></div>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
