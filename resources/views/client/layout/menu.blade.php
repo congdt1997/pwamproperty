@@ -49,7 +49,7 @@
                     </div>
                 @elseif($user_success->idRole == 2)
                     <div class="rd-navbar-main-item"><a class="button button-sm button-primary"
-                                                        href="admin/dashboard/showdata">Management Payment</a>
+                                                        href="staff/dashboard/showdata">Management Payment</a>
                     </div>
                 @elseif(($user_success->idRole == 3) && ($user_success->status == 0)&& ($user_success->count == null))
                     <div class="rd-navbar-main-item"><a class="button button-sm button-primary"

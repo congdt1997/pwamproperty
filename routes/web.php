@@ -125,6 +125,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
         Route::get('showdata','DashboardController@getShowdata');
     });
 });
+Route::group(['prefix' => 'staff', 'middleware' => 'staffMid'], function(){
+    Route::group(['prefix' => 'dashboard'], function(){
+        Route::get('showdata','DashboardController@getShowdata');
+    });
+    Route::group(['prefix' => 'payment'], function(){
+        Route::get('list','PaymentController@getList');
+
+        Route::get('confirm/{id}','PaymentController@getConfirm');
+
+        Route::get('notconfirm/{id}','PaymentController@getNotConfirm');
+    });
+    Route::group(['prefix' => 'feedback'], function(){
+        Route::get('list','FeedbackController@getList');
+
+        Route::get('add','FeedbackController@getAdd');
+        Route::post('add','FeedbackController@postAdd');
+
+        Route::get('delete/{id}','FeedbackController@getDelete');
+    });
+});
 Route::group(['prefix' => 'client'], function(){
     Route::group(['prefix' => 'home'], function(){
         Route::get('home','ClientController@getHome');

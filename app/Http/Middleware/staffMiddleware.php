@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class CheckMiddleware
+class staffMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class CheckMiddleware
     {
         if (Auth::check()){
             $role = Auth::user();
-            if ($role->idRole == 1){
+            if (($role->idRole == 2)||($role->idRole == 1)){
                 return $next($request);
             }else{
                 return redirect('client/home/error');
@@ -26,6 +26,5 @@ class CheckMiddleware
         }else{
             return redirect('client/home/error');
         }
-
     }
 }

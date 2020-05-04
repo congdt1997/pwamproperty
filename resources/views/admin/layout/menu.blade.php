@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-sm navbar-default">
     <div id="main-menu" class="main-menu collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li>
-                <a href="admin/dashboard/showdata"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
-            </li>
+
             @if(isset($user_success))
                 @if(($user_success -> idRole == 1))
+                    <li>
+                        <a href="admin/dashboard/showdata"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    </li>
                     <li class="menu-title">UI elements</li><!-- /.menu-title -->
 
                     <li class="menu-item-has-children dropdown">
@@ -72,12 +73,15 @@
                         <a href="admin/payment/list"> <i class="menu-icon fa fa-money"></i>Payment</a>
                     </li>
                 @elseif(($user_success -> idRole == 2))
+                    <li>
+                        <a href="staff/dashboard/showdata"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    </li>
                     <li class="menu-title">Transaction</li><!-- /.menu-title -->
                     <li>
-                        <a href="admin/feedback/list"> <i class="menu-icon fa fa-reply-all"></i>Feedback</a>
+                        <a href="staff/feedback/list"> <i class="menu-icon fa fa-reply-all"></i>Feedback</a>
                     </li>
                     <li>
-                        <a href="admin/payment/list"> <i class="menu-icon fa fa-money"></i>Payment</a>
+                        <a href="staff/payment/list"> <i class="menu-icon fa fa-money"></i>Payment</a>
                     </li>
                 @endif
             @endif
