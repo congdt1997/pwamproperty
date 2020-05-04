@@ -130,19 +130,16 @@ Route::group(['prefix' => 'staff', 'middleware' => 'staffMid'], function(){
         Route::get('showdata','DashboardController@getShowdata');
     });
     Route::group(['prefix' => 'payment'], function(){
-        Route::get('list','PaymentController@getList');
+        Route::get('list','PaymentController@getListStaff');
 
-        Route::get('confirm/{id}','PaymentController@getConfirm');
+        Route::get('confirm/{id}','PaymentController@getConfirmStaff');
 
-        Route::get('notconfirm/{id}','PaymentController@getNotConfirm');
+        Route::get('notconfirm/{id}','PaymentController@getNotConfirmStaff');
     });
     Route::group(['prefix' => 'feedback'], function(){
-        Route::get('list','FeedbackController@getList');
+        Route::get('list','FeedbackController@getListStaff');
 
-        Route::get('add','FeedbackController@getAdd');
-        Route::post('add','FeedbackController@postAdd');
-
-        Route::get('delete/{id}','FeedbackController@getDelete');
+        Route::get('delete/{id}','FeedbackController@getDeleteStaff');
     });
 });
 Route::group(['prefix' => 'client'], function(){

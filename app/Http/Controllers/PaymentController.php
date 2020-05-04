@@ -40,4 +40,37 @@ class PaymentController extends Controller
         $user -> save();
         return redirect('admin/payment/list')->with('notification', 'Cancel success');
     }
+
+    public function getListStaff()
+    {
+        $payment = Payment::all();
+        return view('staff.payment.list', ['payment'=>$payment]);
+    }
+
+    public function getConfirmStaff(Request $request, $id)
+    {
+        $payment = Payment::find($id);
+        $payment -> comment = $request -> comment12;
+        $payment -> save();
+
+        $id1 = $payment -> idUser;
+        $user = User::find($id1);
+        $user -> status = 1;
+        $user -> count = 5;
+        $user -> save();
+        return redirect('staff/payment/list')->with('notification', 'Confirm success');
+    }
+    public function getNotConfirmStaff(Request $request, $id)
+    {
+        $payment = Payment::find($id);
+        $payment -> comment = $request -> comment1;
+        $payment -> save();
+
+        $id1 = $payment -> idUser;
+        $user = User::find($id1);
+        $user -> status = 0;
+        $user -> count = 0;
+        $user -> save();
+        return redirect('staff/payment/list')->with('notification', 'Cancel success');
+    }
 }
