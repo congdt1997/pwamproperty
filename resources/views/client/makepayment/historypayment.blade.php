@@ -37,18 +37,17 @@
                 @foreach($payment as $pay)
                     @if($pay -> idUser == $user -> id)
                         <tr>
-
                             <td>{{$pay -> id}}</td>
                             <td>{{$pay -> idTypeofcode}}</td>
                             <td>{{$pay -> serial}}</td>
                             <td>{{$pay -> code}}</td>
                             <td>{{$pay -> created_at}}</td>
                             @if($pay -> comment == 'ok')
-                            <td>Success</td>
+                            <td style="color: darkgreen;">Success</td>
                             @elseif($pay -> comment == 'not')
-                            <td>Fail</td>
+                            <td style="color: red;">Fail</td>
                             @elseif($pay -> comment == null)
-                             <td>Processing</td>
+                             <td style="color: dodgerblue;">Processing</td>
                             @endif
                         </tr>
                     @endif

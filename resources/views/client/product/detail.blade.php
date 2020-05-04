@@ -331,8 +331,8 @@
                     <div class="block-group-item">
                         <h3>Similar Properties</h3>
                         <div class="row row-50 mt-10">
-                            @foreach($location as $loc)
-                                @if($loc -> id == $properties -> idLocation)
+                            @foreach($allProperties as $allpro)
+                                @if($allpro -> idUser == $user_success -> id)
                                     <div class="col-md-6 col-lg-12 col-xl-6">
                                         <!-- Product Classic-->
                                         <article class="product-classic">
@@ -340,28 +340,28 @@
                                                 <div class="owl-carousel" data-items="1" data-nav="true"
                                                      data-stage-padding="0" data-loop="false" data-margin="0"
                                                      data-mouse-drag="false"><img
-                                                        src="admin_asset/images/upload/properties/{{$properties->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
                                                         alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$properties->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
                                                         alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$properties->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
                                                         alt="" width="480" height="287"/><img
-                                                        src="admin_asset/images/upload/properties/{{$properties->image}}"
+                                                        src="admin_asset/images/upload/properties/{{$allpro->image}}"
                                                         alt="" width="480" height="287"/>
                                                 </div>
                                                 <div class="product-classic-price">
-                                                    <span>{{$properties->price}}\mo</span></div>
+                                                    <span>{{$allpro->price}}\mo</span></div>
                                             </div>
                                             <h4 class="product-classic-title"><a
-                                                    href="client/product/detail/{{$properties->id}}">{{$properties->introduction}}</a>
+                                                    href="client/product/detail/{{$allpro->id}}">{{$allpro->introduction}}</a>
                                             </h4>
                                             <div class="product-classic-divider"></div>
                                             <ul class="product-classic-list">
-                                                <li><span class="icon mdi mdi-vector-square"></span><span>{{$properties->acreage}} Sq Ft</span>
+                                                <li><span class="icon mdi mdi-vector-square"></span><span>{{$allpro->acreage}} Sq Ft</span>
                                                 </li>
-                                                <li><span class="icon hotel-icon-10"></span><span>{{$properties->bathroom}} Bathrooms</span>
+                                                <li><span class="icon hotel-icon-10"></span><span>{{$allpro->bathroom}} Bathrooms</span>
                                                 </li>
-                                                <li><span class="icon hotel-icon-05"></span><span>{{$properties->bedroom}} Bedrooms</span>
+                                                <li><span class="icon hotel-icon-05"></span><span>{{$allpro->bedroom}} Bedrooms</span>
                                                 </li>
                                             </ul>
                                         </article>

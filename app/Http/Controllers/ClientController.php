@@ -227,6 +227,7 @@ class ClientController extends Controller
     {
         $count = 0;
         $properties = Property::find($id);
+        $allProperties = Property::orderBy('created_at', 'desc')->take(2)->get();
         $user = User::all();
         $location = Location::all();
         $feature = Feature::all();
@@ -237,7 +238,7 @@ class ClientController extends Controller
                 $count++;
             }
         }
-        return view('client.product.detail', ['feature' => $feature, 'typeproperties' => $typeproperties, 'count' => $count, 'review' => $review, 'location' => $location, 'user' => $user, 'properties' => $properties]);
+        return view('client.product.detail', ['allProperties' => $allProperties, 'feature' => $feature, 'typeproperties' => $typeproperties, 'count' => $count, 'review' => $review, 'location' => $location, 'user' => $user, 'properties' => $properties]);
     }
 
     public function getListproduct()
@@ -258,7 +259,9 @@ class ClientController extends Controller
     public function getNewsdetail($id)
     {
         $news = News::find($id);
-        return view('client.news.newsdetail', ['news' => $news]);
+        $news2 = News::orderBy('created_at', 'desc')->take(2)->get();
+        $properties = Property::orderBy('created_at', 'desc')->take(3)->get();
+        return view('client.news.newsdetail', ['news2' => $news2, 'news' => $news, 'properties' => $properties]);
     }
 
     // sort price low to high

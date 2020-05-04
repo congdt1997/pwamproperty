@@ -1,7 +1,7 @@
 @extends('client.layout.index')
 @section('content')
     <section class="breadcrumbs-custom bg-image context-dark" data-opacity="37"
-             style="background-image: url(images/breadcrumbs-bg-05-1922x441.jpg);">
+             style="background-image: url(client_asset/images/home/property.jpg;">
         <div class="container">
             <h2 class="breadcrumbs-custom-title">Properties Grid</h2>
         </div>
@@ -236,7 +236,7 @@
                                         </select>
                                     </div>
                                     <div class="form-button">
-                                        <button class="button button-block button-primary" type="submit">Search</button>
+                                        <a class="button button-block button-primary" href="client/product/listproduct">Back to list</a>
                                     </div>
                                 </form>
                             </div>

@@ -53,19 +53,20 @@
         <div class="container">
             <div class="row row-40 justify-content-lg-between">
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <h3 class="heading-square font-weight-sbold" data-item=".heading-square-item"><span class="heading-square-item"></span>Latest Properties</h3><a class="post-minimal" href="single-property.html">
-                        <div class="post-minimal-image"><img src="client_asset/images/post-minimal-01-161x136.jpg" alt="" width="161" height="136"/>
+                    <h3 class="heading-square font-weight-sbold" data-item=".heading-square-item"><span class="heading-square-item"></span>Latest Properties</h3>
+                        <?php
+
+                        $properties3 = \App\Property::orderBy('created_at', 'desc')->take(2)->get();
+                        ?>
+                    @foreach($properties3 as $pro)
+                        <a class="post-minimal" href="single-property.html">
+                        <div class="post-minimal-image"><img src="admin_asset/images/upload/properties/{{$pro->image}}" alt="" width="161" height="136"/>
                         </div>
                         <div class="post-minimal-body">
-                            <div class="post-minimal-title"><span> Retail Store Southwest 186th Street</span></div>
-                            <div class="post-minimal-text"><span>From $120/month</span></div>
-                        </div></a><a class="post-minimal" href="single-property.html">
-                        <div class="post-minimal-image"><img src="client_asset/images/post-minimal-02-161x136.jpg" alt="" width="161" height="136"/>
-                        </div>
-                        <div class="post-minimal-body">
-                            <div class="post-minimal-title"><span> Apartment Building with Subunits</span></div>
-                            <div class="post-minimal-text"><span>From $120/month</span></div>
+                            <div class="post-minimal-title"><span>{{$pro->introduction}}</span></div>
+                            <div class="post-minimal-text"><span>From {{$pro->price}}$</span></div>
                         </div></a>
+                    @endforeach
                 </div>
                 <div class="col-md-6 col-lg-4 col-xl-3 col-bordered">
                     <h3 class="heading-square font-weight-sbold" data-item=".heading-square-item"><span class="heading-square-item"></span>Contact	Us</h3>
@@ -75,21 +76,21 @@
                 </div>
                 <div class="col-lg-4">
                     <h3 class="heading-square font-weight-sbold" data-item=".heading-square-item"><span class="heading-square-item"></span>Newsletter Signup</h3>
-                    <p class="rd-mailform-label">Enter your e-mail to get the latest news of MyHome</p>
+                    <p class="rd-mailform-label">Enter your e-mail to get the latest news of P-WAM</p>
                     <form class="rd-form rd-mailform rd-form-inline-1" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="client_asset/bat/rd-mailform.php">
                         <div class="form-wrap">
                             <input class="form-input" id="subscribe-form--email" type="email" name="email" data-constraints="@Email @Required">
                             <label class="form-label" for="subscribe-form--email">Your e-mail</label>
                         </div>
                         <div class="form-button">
-                            <button class="button button-primary button-square" type="submit">Subscribe</button>
+                            <button class="button button-primary button-square" >Subscribe</button>
                         </div>
                     </form>
                     <ul class="list-inline-1">
                         <li><a class="icon fa-facebook" href="#"></a></li>
-                        <li><a class="icon fa-twitter" href="#"></a></li>
-                        <li><a class="icon fa-google-plus" href="#"></a></li>
-                        <li><a class="icon fa-pinterest-p" href="#"></a></li>
+                        <li><a class="icon fa-twitter" ></a></li>
+                        <li><a class="icon fa-google-plus" ></a></li>
+                        <li><a class="icon fa-pinterest-p" ></a></li>
                     </ul>
                 </div>
             </div>
@@ -103,9 +104,6 @@
                     <!-- Rights-->
                     <p class="rights"><span>P-WAM</span> <span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a>
                     </p>
-                </div>
-                <div class="col-sm-6 text-sm-right">
-                    <div class="right-1"><a href="#"><span class="icon mdi mdi-plus"></span>Submit Property</a></div>
                 </div>
             </div>
         </div>
