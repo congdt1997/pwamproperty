@@ -245,7 +245,6 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            {{$properties -> links()}}
                         </div>
                     </div>
                 </div>

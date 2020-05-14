@@ -1,7 +1,7 @@
 @extends('client.layout.index')
 @section('content')
     <section class="breadcrumbs-custom bg-image context-dark" data-opacity="37"
-             style="background-image: url(client_asset/images/home/property.jpg;">
+             style="background-image: url(client_asset/images/home/property.jpg);">
         <div class="container">
             <h2 class="breadcrumbs-custom-title">Properties Grid</h2>
         </div>
@@ -189,7 +189,6 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            {{$properties -> links()}}
                         </div>
                     </div>
                 </div>

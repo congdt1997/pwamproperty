@@ -306,7 +306,7 @@ class ClientController extends Controller
         $typeProperty = $request->typeProperties;
         $location = Location::all();
         $typeproperties = TypeOfProperty::all();
-        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+        $properties = Property::orderBy('created_at', 'desc')->get();
         return view('client.product.showproduct', ['typeProperty' => $typeProperty, 'locationName' => $locationName, 'typeproperties' => $typeproperties, 'location' => $location, 'properties' => $properties]);
     }
 
@@ -320,7 +320,7 @@ class ClientController extends Controller
         $typeProperty = $request->typeProperties;
         $location = Location::all();
         $typeproperties = TypeOfProperty::all();
-        $properties = Property::orderBy('created_at', 'desc')->paginate(8);
+        $properties = Property::orderBy('created_at', 'desc')->get();
         return view('client.product.showproduct2', ['typeProperty' => $typeProperty,
             'locationName' => $locationName, 'typeproperties' => $typeproperties,
             'location' => $location, 'price_maxacreage' => $price_maxacreage,
