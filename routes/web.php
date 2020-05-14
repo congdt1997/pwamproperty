@@ -126,6 +126,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
         Route::get('confirm/{id}','PaymentController@getConfirm');
 
         Route::get('notconfirm/{id}','PaymentController@getNotConfirm');
+        Route::get('block/{id}','PaymentController@getBlock');
     });
     Route::group(['prefix' => 'review'], function(){
         Route::get('delete/{id}/{idProperty}','ReviewController@getDelete');
@@ -142,10 +143,9 @@ Route::group(['prefix' => 'staff', 'middleware' => 'staffMid'], function(){
     });
     Route::group(['prefix' => 'payment'], function(){
         Route::get('list','PaymentController@getListStaff');
-
         Route::get('confirm/{id}','PaymentController@getConfirmStaff');
-
         Route::get('notconfirm/{id}','PaymentController@getNotConfirmStaff');
+        Route::get('block/{id}','PaymentController@getBlock2');
     });
     Route::group(['prefix' => 'feedback'], function(){
         Route::get('list','FeedbackController@getListStaff');

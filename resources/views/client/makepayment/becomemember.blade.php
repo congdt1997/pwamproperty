@@ -72,7 +72,17 @@
                                         <select name="idTypeofcode" id="contact-location" class="col-md-12">
                                             <option value="none" selected="" readonly>Select type of Code</option>
                                             @foreach($typecode as $typec)
-                                                <option value={{$typec -> id}}>{{$typec -> name}} : 20000 VND</option>
+                                                <option value={{$typec -> id}}>{{$typec -> name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <select name="idPricetag" id="contact-pricetag" class="col-md-12">
+                                            <option value="none" selected="" readonly>Price tag</option>
+                                            @foreach($tag as $pri)
+                                                <option value={{$pri -> id}}>{{$pri -> pricetag}}</option>
                                             @endforeach
                                         </select>
                                     </div>

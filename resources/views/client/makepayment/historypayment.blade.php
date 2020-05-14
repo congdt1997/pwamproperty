@@ -26,6 +26,7 @@
                 <tr>
                     <th>ID Payment</th>
                     <th>Card</th>
+                    <th>Price</th>
                     <th>Serial</th>
                     <th>Code</th>
                     <th>Time</th>
@@ -38,7 +39,16 @@
                     @if($pay -> idUser == $user -> id)
                         <tr>
                             <td>{{$pay -> id}}</td>
-                            <td>{{$pay -> idTypeofcode}}</td>
+                            @foreach($typecode as $type)
+                                @if($type -> id == $pay -> idTypeofcode)
+                                    <td>{{$type -> name}}</td>
+                                @endif
+                            @endforeach
+                            @foreach($tag as $pri)
+                                @if($pri -> id == $pay -> idPricetag)
+                                    <td>{{$pri -> pricetag}}</td>
+                                @endif
+                            @endforeach
                             <td>{{$pay -> serial}}</td>
                             <td>{{$pay -> code}}</td>
                             <td>{{$pay -> created_at}}</td>

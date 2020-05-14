@@ -46,6 +46,7 @@
                                     <th>Id</th>
                                     <th>Created at</th>
                                     <th>Type of code</th>
+                                    <th>Price tag</th>
                                     <th>Serial</th>
                                     <th>Code</th>
                                     <th>User</th>
@@ -58,7 +59,16 @@
                                     <tr>
                                         <td>{{$pay -> id}}</td>
                                         <td>{{$pay -> created_at}}</td>
-                                        <td>{{$pay -> idTypeofcode}}</td>
+                                        @foreach($typecode as $type)
+                                            @if($type -> id == $pay -> idTypeofcode)
+                                                <td>{{$type -> name}}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach($tag as $pri)
+                                            @if($pri -> id == $pay -> idPricetag)
+                                                <td>{{$pri -> pricetag}}</td>
+                                            @endif
+                                        @endforeach
                                         <td>{{$pay -> serial}}</td>
                                         <td>{{$pay -> code}}</td>
                                         <td><a href="staff/user/edit/{{$pay->idUser}}">{{$pay -> idUser}}</a></td>
@@ -88,7 +98,7 @@
                                             <td>Done</td>
                                         @elseif($pay -> comment == 'ok')
                                             <td>
-                                                <form action="staff/payment/notconfirm/{{$pay -> id}}" method="GET">
+                                                <form action="staff/payment/block/{{$pay -> id}}" method="GET">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                     <input type="hidden" name="comment12" value="not">
                                                     <button class="btn btn-secondary" type="submit">Block</button>

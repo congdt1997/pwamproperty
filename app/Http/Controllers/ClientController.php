@@ -16,6 +16,7 @@ use App\Role;
 use App\Location;
 use App\Review;
 use App\TypeOfCode;
+use App\Pricetag;
 use Illuminate\Support\Facades\Mail;
 use Monolog\Handler\IFTTTHandler;
 
@@ -592,7 +593,8 @@ class ClientController extends Controller
         $id1 = Auth::user()->id;
         $user = User::find($id1);
         $typecode = TypeOfCode::all();
-        return view('client.makepayment.becomemember', ['user' => $user, 'typecode' => $typecode]);
+        $tag = Pricetag::all();
+        return view('client.makepayment.becomemember', ['tag' => $tag, 'user' => $user, 'typecode' => $typecode]);
     }
 
     public function postMember(Request $request){
@@ -610,6 +612,7 @@ class ClientController extends Controller
         ]);
         $payment = new Payment();
         $payment->idTypeofcode = $request->idTypeofcode;
+        $payment->idPricetag = $request->idPricetag;
         $payment->serial = $request->serial;
         $payment->code = $request->code;
         $payment->idUser = $request->idUser;
@@ -622,6 +625,7 @@ class ClientController extends Controller
         $user = User::find($id1);
         $payment = Payment::all();
         $typecode = TypeOfCode::all();
-        return view('client.makepayment.historypayment', ['user' => $user, 'payment' => $payment, 'typecode' => $typecode]);
+        $tag = Pricetag::all();
+        return view('client.makepayment.historypayment', ['tag' => $tag, 'user' => $user, 'payment' => $payment, 'typecode' => $typecode]);
     }
 }
