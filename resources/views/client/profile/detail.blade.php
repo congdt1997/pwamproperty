@@ -6,10 +6,14 @@
                 <div class="layout-bordered-aside">
                     <div class="layout-bordered-aside-inner">
                         <h2>Your profile:
-                            @if($user -> verified_email == 1)
-                                <i><img src="client_asset/images/about/check.png" style="height:30px; width:30px;"></i>
-                            @else
-                                Not Yet
+                            @if(($user -> verified_email == 1)&&($user->idRole == 3))
+                                <i><img src="client_asset/images/about/check.png"
+                                        style="height:20px; width:20px;"></i>
+                            @elseif(($user -> verified_email == 1)&&($user->idRole == 1))
+                                <i><img src="client_asset/images/about/admin.png"
+                                        style="height:20px; width:20px;"></i>
+                                @else
+                                <h4>Not Yet</h4>
                             @endif
                         </h2><br>
                         <h4>Name: {{$user->fullname}}</h4>

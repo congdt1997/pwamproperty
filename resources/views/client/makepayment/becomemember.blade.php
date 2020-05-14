@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12" >
                                     <div class="form-wrap">
                                         <input class="form-input" id="contact-address" type="text" readonly name="idUser" value="{{$user -> id}}">
                                     </div>

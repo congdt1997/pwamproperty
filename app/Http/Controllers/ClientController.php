@@ -601,10 +601,12 @@ class ClientController extends Controller
         $this->validate($request, [
             'code' => 'required|min:10',
             'serial' => 'required|min:10',
-            'idTypeofcode' => 'required|max:2'
+            'idTypeofcode' => 'required|max:2',
+            'idPricetag' => 'required|max:2'
         ], [
             'idTypeofcode.required' => 'You have to select type of code',
             'idTypeofcode.max' => 'You have to select the type of code',
+            'idPricetag.max' => 'You have to select the Price tag',
             'code.required' => 'You have to enter Code',
             'code.min' => 'You must input more than 10 characters',
             'serial.required' => 'You have to enter Serial',

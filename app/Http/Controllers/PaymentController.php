@@ -93,7 +93,7 @@ class PaymentController extends Controller
             $message ->to($receive, 'visitor') -> subject('Notify about blocking your account');
         });
 
-        return redirect('admin/payment/list')->with('notification', 'Cancel success');
+        return redirect('admin/payment/list')->with('notification', 'Block success');
     }
 
     public function getListStaff()
@@ -172,6 +172,6 @@ class PaymentController extends Controller
             $message ->to($receive, 'visitor') -> subject('Notify about blocking your account');
         });
 
-        return redirect('staff/payment/list')->with('notification', 'Cancel success');
+        return redirect('staff/payment/list')->with('notification', 'Block success');
     }
 }

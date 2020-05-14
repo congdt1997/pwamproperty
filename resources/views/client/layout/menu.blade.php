@@ -35,6 +35,7 @@
                             </li>
                             <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/product/submitlist">Your
                                     properties</a></li>
+                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="client/makepayment/becomemember">Making Payment</a></li>
                         </ul>
                     </li>
                 @endif
