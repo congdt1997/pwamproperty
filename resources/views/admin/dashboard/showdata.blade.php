@@ -104,41 +104,35 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="box-title">Traffic </h4>
+                            <h4 class="box-title">Other Information </h4>
                         </div>
                         <div class="row">
-                            <div class="col-lg-8">
-                                <div class="card-body">
-                                    <!-- <canvas id="TrafficChart"></canvas>   -->
-                                    <div id="traffic-chart" class="traffic-chart"></div>
-                                </div>
-                            </div>
                             <div class="col-lg-4">
                                 <div class="card-body">
                                     <div class="progress-box progress-1">
-                                        <h4 class="por-title">Visits</h4>
-                                        <div class="por-txt">{{$countpay}} Location</div>
+                                        <h4 class="por-title">Staff</h4>
+                                        <div class="por-txt">{{$count_client2}} Staffs</div>
                                         <div class="progress mb-2" style="height: 5px;">
                                             <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="progress-box progress-2">
-                                        <h4 class="por-title">Bounce Rate</h4>
-                                        <div class="por-txt">3,220 Users (24%)</div>
+                                        <h4 class="por-title">News</h4>
+                                        <div class="por-txt">{{$news}} News</div>
                                         <div class="progress mb-2" style="height: 5px;">
                                             <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="progress-box progress-2">
-                                        <h4 class="por-title">Unique Visitors</h4>
-                                        <div class="por-txt">29,658 Users (60%)</div>
+                                        <h4 class="por-title">Paypal Payment</h4>
+                                        <div class="por-txt"> Transactions</div>
                                         <div class="progress mb-2" style="height: 5px;">
                                             <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="progress-box progress-2">
-                                        <h4 class="por-title">Targeted  Visitors</h4>
-                                        <div class="por-txt">99,658 Users (90%)</div>
+                                        <h4 class="por-title">Feedback</h4>
+                                        <div class="por-txt">{{$feedback}} Feedback</div>
                                         <div class="progress mb-2" style="height: 5px;">
                                             <div class="progress-bar bg-flat-color-4" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>

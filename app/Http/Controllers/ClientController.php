@@ -320,7 +320,11 @@ class ClientController extends Controller
         $location = Location::all();
         $typeproperties = TypeOfProperty::all();
         $properties = Property::orderBy('created_at', 'desc')->paginate(8);
-        return view('client.product.showproduct2', ['typeProperty' => $typeProperty, 'locationName' => $locationName, 'typeproperties' => $typeproperties, 'location' => $location, 'price_maxacreage' => $price_maxacreage, 'price_minacreage' => $price_minacreage, 'price_min' => $price_min, 'price_max' => $price_max, 'properties' => $properties]);
+        return view('client.product.showproduct2', ['typeProperty' => $typeProperty,
+            'locationName' => $locationName, 'typeproperties' => $typeproperties,
+            'location' => $location, 'price_maxacreage' => $price_maxacreage,
+            'price_minacreage' => $price_minacreage, 'price_min' => $price_min,
+            'price_max' => $price_max, 'properties' => $properties]);
     }
 
     public function getSubmitproperty()

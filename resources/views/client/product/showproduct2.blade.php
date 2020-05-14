@@ -39,7 +39,9 @@
                                 ?>
                                 @foreach($properties as $pro)
                                     @if(($locationName != 'none') && ($typeProperty != 'none'))
-                                        @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ($pro -> idLocation == $locationName && $pro -> idType == $typeProperty))
+                                        @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) &&
+                                            (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) &&
+                                            ($pro -> idLocation == $locationName && $pro -> idType == $typeProperty))
                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                 <!-- Product Classic-->
                                                 <article class="product-classic">
@@ -87,7 +89,9 @@
                                                 ?>
                                             @endif
                                         @elseif($locationName != 'none')
-                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ($pro -> idLocation == $locationName))
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) &&
+                                                (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) &&
+                                                ($pro -> idLocation == $locationName))
                                                 <div class="col-md-6 col-lg-12 col-xl-6">
                                                     <!-- Product Classic-->
                                                     <article class="product-classic">
@@ -135,7 +139,9 @@
                                                     ?>
                                             @endif
                                         @elseif($typeProperty != 'none')
-                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) && ( $pro -> idType == $typeProperty))
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) &&
+                                            (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)) &&
+                                            ( $pro -> idType == $typeProperty))
                                                 <div class="col-md-6 col-lg-12 col-xl-6">
                                                     <!-- Product Classic-->
                                                     <article class="product-classic">
@@ -183,7 +189,8 @@
                                                     ?>
                                             @endif
                                         @elseif(($locationName == 'none') && ($typeProperty == 'none'))
-                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) && (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)))
+                                            @if((($pro->price >= $price_min) && ($pro->price <= $price_max)) &&
+                                            (($pro->acreage >= $price_minacreage) && ($pro->acreage <= $price_maxacreage)))
                                                 <div class="col-md-6 col-lg-12 col-xl-6">
                                                     <!-- Product Classic-->
                                                     <article class="product-classic">

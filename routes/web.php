@@ -80,6 +80,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkMid'], function(){
 
         Route::get('delete/{id}','RoleController@getDelete');
     });
+    Route::group(['prefix' => 'pricetag'], function(){
+        Route::get('list','PricetagController@getList');
+
+        Route::get('add','PricetagController@getAdd');
+        Route::post('add','PricetagController@postAdd');
+
+        Route::get('edit/{id}','PricetagController@getEdit');
+        Route::post('edit/{id}','PricetagController@postEdit');
+
+        Route::get('delete/{id}','PricetagController@getDelete');
+    });
     Route::group(['prefix' => 'user'], function(){
         Route::get('list','UserController@getList');
 

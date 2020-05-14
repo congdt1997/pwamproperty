@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
+use App\News;
 use Illuminate\Http\Request;
 use App\Payment;
 use App\User;
@@ -26,9 +28,17 @@ class DashboardController extends Controller
                 $count_client++;
             }
         }
-
+        $count_client2 = 0;
+        $user = User::all();
+        foreach($user as $us){
+            if($us -> idRole == 2){
+                $count_client2++;
+            }
+        }
+        $news = News::count();
+        $feedback = Feedback::count();
         $calcu = ($countpay * 20000)/23000;
         $pricecalcu = number_format($calcu, 2);
-        return view('admin.dashboard.showdata', ['count_client'=>$count_client, 'properties'=>$properties, 'pricecalcu'=>$pricecalcu, 'countpay'=>$countpay, 'calcu'=>$calcu]);
+        return view('admin.dashboard.showdata', ['feedback'=>$feedback, 'news'=>$news, 'count_client'=>$count_client, 'count_client2'=>$count_client2, 'properties'=>$properties, 'pricecalcu'=>$pricecalcu, 'countpay'=>$countpay, 'calcu'=>$calcu]);
     }
 }
